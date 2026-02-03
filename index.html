@@ -275,22 +275,13 @@
         /* Герой секция */
         .hero {
             padding: 160px 0 100px;
-            background-color: var(--background-alt);
+            background: linear-gradient(rgba(255, 255, 255, 0.9), rgba(255, 255, 255, 0.9)), 
+                        url('https://images.unsplash.com/photo-1581094794329-c8112a89af12?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80');
+            background-size: cover;
+            background-position: center;
             position: relative;
             overflow: hidden;
             border-bottom: var(--border);
-        }
-        
-        .hero::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            right: 0;
-            width: 40%;
-            height: 100%;
-            background: linear-gradient(135deg, var(--light-yellow) 0%, transparent 70%);
-            pointer-events: none;
-            z-index: 0;
         }
         
         .hero-content {
@@ -326,12 +317,30 @@
         .counters {
             background-color: var(--primary-black);
             padding: 60px 0;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .counters::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url('https://images.unsplash.com/photo-1450101499163-c8848c66ca85?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80');
+            background-size: cover;
+            background-position: center;
+            opacity: 0.1;
+            z-index: 0;
         }
         
         .counters-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
             gap: 30px;
+            position: relative;
+            z-index: 1;
         }
         
         .counter-item {
@@ -368,7 +377,7 @@
         .service-card {
             background-color: var(--white);
             border-radius: var(--border-radius-lg);
-            padding: 40px 30px;
+            padding: 0 0 40px 0;
             text-align: center;
             transition: var(--transition);
             border: var(--border);
@@ -383,28 +392,24 @@
             box-shadow: var(--shadow-yellow);
         }
         
-        .service-icon {
-            width: 80px;
-            height: 80px;
-            background: linear-gradient(135deg, var(--primary-yellow), var(--dark-yellow));
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin: 0 auto 25px;
-            font-size: 32px;
-            color: var(--primary-black);
+        .service-image {
+            height: 180px;
+            width: 100%;
+            object-fit: cover;
+            margin-bottom: 25px;
         }
         
         .service-card h3 {
             font-size: 22px;
             margin-bottom: 15px;
             color: var(--primary-black);
+            padding: 0 30px;
         }
         
         .service-card p {
             color: var(--text-medium);
             margin-bottom: 25px;
+            padding: 0 30px;
         }
         
         .service-price {
@@ -416,6 +421,7 @@
             align-items: center;
             justify-content: center;
             gap: 5px;
+            padding: 0 30px;
         }
         
         .service-price span {
@@ -423,11 +429,31 @@
             font-size: 28px;
         }
         
+        .service-action {
+            padding: 0 30px;
+        }
+        
         /* Форма заявки */
         .order-form-section {
             background-color: var(--background-alt);
             border-top: var(--border);
             border-bottom: var(--border);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .order-form-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 40%;
+            height: 100%;
+            background: url('https://images.unsplash.com/photo-1558618666-fcd25c85cd64?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80');
+            background-size: cover;
+            background-position: center;
+            opacity: 0.05;
+            z-index: 0;
         }
         
         .form-container {
@@ -438,6 +464,8 @@
             padding: 50px;
             box-shadow: var(--shadow);
             border: var(--border);
+            position: relative;
+            z-index: 1;
         }
         
         .form-title {
@@ -578,14 +606,35 @@
             flex-direction: column;
             align-items: center;
             justify-content: center;
-            background-color: var(--white);
+            background: url('https://images.unsplash.com/photo-1542314831-068cd1dbfeeb?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80');
+            background-size: cover;
+            background-position: center;
             color: var(--text-medium);
+            position: relative;
+        }
+        
+        .map-placeholder::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(255, 255, 255, 0.8);
+            z-index: 1;
         }
         
         .map-placeholder i {
             font-size: 64px;
             color: var(--primary-yellow);
             margin-bottom: 20px;
+            position: relative;
+            z-index: 2;
+        }
+        
+        .map-placeholder h3, .map-placeholder p {
+            position: relative;
+            z-index: 2;
         }
         
         /* О нас */
@@ -628,12 +677,69 @@
             box-shadow: var(--shadow);
             border: var(--border);
             text-align: center;
+            overflow: hidden;
+            position: relative;
+            height: 400px;
         }
         
-        .about-image i {
-            font-size: 120px;
-            color: var(--primary-yellow);
-            margin-bottom: 20px;
+        .about-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: var(--border-radius);
+        }
+        
+        /* Галерея работ */
+        .gallery {
+            background-color: var(--background);
+            border-top: var(--border);
+        }
+        
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 20px;
+        }
+        
+        .gallery-item {
+            border-radius: var(--border-radius);
+            overflow: hidden;
+            height: 220px;
+            position: relative;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+        }
+        
+        .gallery-item:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-hover);
+        }
+        
+        .gallery-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+        
+        .gallery-item:hover img {
+            transform: scale(1.05);
+        }
+        
+        .gallery-overlay {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            padding: 15px;
+            background: linear-gradient(transparent, rgba(33, 33, 33, 0.8));
+            color: var(--white);
+            opacity: 0;
+            transition: var(--transition);
+        }
+        
+        .gallery-item:hover .gallery-overlay {
+            opacity: 1;
         }
         
         /* Подвал */
@@ -641,6 +747,22 @@
             background-color: var(--primary-black);
             padding: 60px 0 30px;
             color: var(--white);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        footer::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url('https://images.unsplash.com/photo-1518709268805-4e9042af2176?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80');
+            background-size: cover;
+            background-position: center;
+            opacity: 0.05;
+            z-index: 0;
         }
         
         .footer-grid {
@@ -648,6 +770,8 @@
             grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
             gap: 40px;
             margin-bottom: 40px;
+            position: relative;
+            z-index: 1;
         }
         
         .footer-col h3 {
@@ -719,6 +843,8 @@
             border-top: 1px solid rgba(255, 255, 255, 0.1);
             color: #BDBDBD;
             font-size: 14px;
+            position: relative;
+            z-index: 1;
         }
         
         /* Модальное окно */
@@ -897,11 +1023,14 @@
             }
             
             .service-card {
-                padding: 30px 20px;
+                padding: 0 0 30px 0;
             }
             
-            .hero::before {
-                width: 70%;
+            .service-card h3,
+            .service-card p,
+            .service-price,
+            .service-action {
+                padding: 0 20px;
             }
         }
         
@@ -1003,6 +1132,16 @@
         .text-yellow {
             color: var(--primary-yellow) !important;
         }
+        
+        .image-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, rgba(255, 193, 7, 0.1), transparent);
+            z-index: 1;
+        }
     </style>
 </head>
 <body>
@@ -1020,6 +1159,7 @@
             <nav class="nav-menu" id="navMenu">
                 <a href="#services" class="nav-link">Услуги</a>
                 <a href="#order" class="nav-link">Заявка</a>
+                <a href="#gallery" class="nav-link">Галерея</a>
                 <a href="#contacts" class="nav-link">Контакты</a>
                 <a href="#about" class="nav-link">О нас</a>
                 <a href="#faq" class="nav-link">FAQ</a>
@@ -1083,63 +1223,115 @@
             
             <div class="services-grid">
                 <div class="service-card fade-in">
-                    <div class="service-icon">
-                        <i class="fas fa-print"></i>
-                    </div>
-                    <h3>Печать документов</h3>
+                    <img src="https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" 
+                         alt="Печать документов" class="service-image">
+                    <h3>Печать документов <span class="badge">Срочно</span></h3>
                     <p>Распечатка любых документов: от черно-белых до полноцветных. Форматы А4, А3. Срочная печать и доставка по Нягани.</p>
                     <div class="service-price">от <span>10</span> ₽</div>
-                    <button class="btn order-service" data-service="Печать документов">Заказать</button>
+                    <div class="service-action">
+                        <button class="btn order-service" data-service="Печать документов">Заказать</button>
+                    </div>
                 </div>
                 
                 <div class="service-card fade-in">
-                    <div class="service-icon">
-                        <i class="fas fa-mobile-alt"></i>
-                    </div>
+                    <img src="https://images.unsplash.com/photo-1563013544-824ae1b704d3?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" 
+                         alt="Ремонт телефонов" class="service-image">
                     <h3>Ремонт телефонов <span class="badge">Популярно</span></h3>
                     <p>Ремонт всех моделей смартфонов: замена экранов, аккумуляторов, разъемов, ремонт после падения и залития.</p>
                     <div class="service-price">от <span>500</span> ₽</div>
-                    <button class="btn order-service" data-service="Ремонт телефонов">Заказать</button>
+                    <div class="service-action">
+                        <button class="btn order-service" data-service="Ремонт телефонов">Заказать</button>
+                    </div>
                 </div>
                 
                 <div class="service-card fade-in">
-                    <div class="service-icon">
-                        <i class="fas fa-laptop"></i>
-                    </div>
+                    <img src="https://images.unsplash.com/photo-1496181133206-80ce9b88a853?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" 
+                         alt="Ремонт ноутбуков" class="service-image">
                     <h3>Ремонт ноутбуков</h3>
                     <p>Диагностика и ремонт ноутбуков: замена матриц, клавиатур, чистка от пыли, ремонт материнских плат, установка ОС.</p>
                     <div class="service-price">от <span>800</span> ₽</div>
-                    <button class="btn order-service" data-service="Ремонт ноутбуков">Заказать</button>
+                    <div class="service-action">
+                        <button class="btn order-service" data-service="Ремонт ноутбуков">Заказать</button>
+                    </div>
                 </div>
                 
                 <div class="service-card fade-in">
-                    <div class="service-icon">
-                        <i class="fas fa-tv"></i>
-                    </div>
+                    <img src="https://images.unsplash.com/photo-1593359677879-a4bb92f829d1?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" 
+                         alt="Ремонт телевизоров" class="service-image">
                     <h3>Ремонт телевизоров</h3>
                     <p>Ремонт ЖК и LED телевизоров: замена матриц, блоков питания, ремонт плат, настройка и подключение.</p>
                     <div class="service-price">от <span>1000</span> ₽</div>
-                    <button class="btn order-service" data-service="Ремонт телевизоров">Заказать</button>
+                    <div class="service-action">
+                        <button class="btn order-service" data-service="Ремонт телевизоров">Заказать</button>
+                    </div>
                 </div>
                 
                 <div class="service-card fade-in">
-                    <div class="service-icon">
-                        <i class="fas fa-home"></i>
-                    </div>
+                    <img src="https://images.unsplash.com/photo-1581579431534-1c0d1a8d68d0?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" 
+                         alt="Вызов мастера на дом" class="service-image">
                     <h3>Вызов мастера на дом</h3>
                     <p>Выезд мастера в течение 2 часов. Диагностика и ремонт на дому. Удобно для пенсионеров и занятых людей.</p>
                     <div class="service-price">от <span>300</span> ₽</div>
-                    <button class="btn order-service" data-service="Вызов мастера на дом">Заказать</button>
+                    <div class="service-action">
+                        <button class="btn order-service" data-service="Вызов мастера на дом">Заказать</button>
+                    </div>
                 </div>
                 
                 <div class="service-card fade-in">
-                    <div class="service-icon">
-                        <i class="fas fa-headset"></i>
-                    </div>
+                    <img src="https://images.unsplash.com/photo-1552664730-d307ca884978?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" 
+                         alt="Консультация" class="service-image">
                     <h3>Консультация и диагностика</h3>
                     <p>Бесплатная диагностика и консультация по ремонту. Поможем определить проблему и назовем точную стоимость.</p>
                     <div class="service-price"><span>Бесплатно</span></div>
-                    <button class="btn btn-black order-service" data-service="Консультация">Заказать</button>
+                    <div class="service-action">
+                        <button class="btn btn-black order-service" data-service="Консультация">Заказать</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Галерея работ -->
+    <section class="section gallery" id="gallery">
+        <div class="container">
+            <h2 class="section-title">Наши работы</h2>
+            <p class="section-subtitle">Примеры выполненных ремонтов и отзывы довольных клиентов</p>
+            
+            <div class="gallery-grid">
+                <div class="gallery-item fade-in">
+                    <img src="https://images.unsplash.com/photo-1517077304055-6e89abbf09b0?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" 
+                         alt="Ремонт смартфона">
+                    <div class="gallery-overlay">
+                        <h4>Замена экрана iPhone</h4>
+                        <p>Выполнено за 1 час</p>
+                    </div>
+                </div>
+                
+                <div class="gallery-item fade-in">
+                    <img src="https://images.unsplash.com/photo-1526170375885-4d8ecf77b99f?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" 
+                         alt="Ремонт ноутбука">
+                    <div class="gallery-overlay">
+                        <h4>Чистка ноутбука от пыли</h4>
+                        <p>Восстановление системы охлаждения</p>
+                    </div>
+                </div>
+                
+                <div class="gallery-item fade-in">
+                    <img src="https://images.unsplash.com/photo-1545235617-9465d2a55698?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" 
+                         alt="Сервисный центр">
+                    <div class="gallery-overlay">
+                        <h4>Наш сервисный центр</h4>
+                        <p>Современное оборудование</p>
+                    </div>
+                </div>
+                
+                <div class="gallery-item fade-in">
+                    <img src="https://images.unsplash.com/photo-1560472354-b33ff0c44a43?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" 
+                         alt="Печать документов">
+                    <div class="gallery-overlay">
+                        <h4>Печать документов</h4>
+                        <p>Цветная и черно-белая печать</p>
+                    </div>
                 </div>
             </div>
         </div>
@@ -1230,9 +1422,9 @@
                 </div>
                 
                 <div class="about-image">
-                    <i class="fas fa-tools"></i>
-                    <h3>Профессиональный подход</h3>
-                    <p>Наши мастера проходят регулярное обучение и сертификацию. Мы используем профессиональное оборудование и следим за новинками в мире техники.</p>
+                    <img src="https://images.unsplash.com/photo-1565689221354-d87f85d4aee2?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" 
+                         alt="Наш сервисный центр">
+                    <div class="image-overlay"></div>
                 </div>
             </div>
         </div>
