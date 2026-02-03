@@ -170,20 +170,13 @@
             display: flex;
             align-items: center;
             gap: 15px;
+            text-decoration: none;
         }
         
-        .logo-icon {
-            background: linear-gradient(135deg, var(--primary-yellow), var(--dark-yellow));
-            color: var(--primary-black);
-            width: 55px;
-            height: 55px;
-            border-radius: 10px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 22px;
-            font-weight: 800;
-            box-shadow: var(--shadow-yellow);
+        .logo-img {
+            height: 60px;
+            width: auto;
+            transition: var(--transition);
         }
         
         .logo-text {
@@ -202,6 +195,13 @@
             font-size: 13px;
             color: var(--text-medium);
             font-weight: 500;
+        }
+        
+        /* Логотип для мобильных */
+        .logo-mobile {
+            display: none;
+            height: 40px;
+            width: auto;
         }
         
         .nav-menu {
@@ -792,6 +792,21 @@
             left: 0;
         }
         
+        .footer-logo {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            gap: 15px;
+        }
+        
+        .footer-logo-img {
+            height: 70px;
+            width: auto;
+            background-color: var(--white);
+            padding: 10px;
+            border-radius: var(--border-radius);
+        }
+        
         .footer-links {
             list-style: none;
         }
@@ -1032,6 +1047,24 @@
             .service-action {
                 padding: 0 20px;
             }
+            
+            /* Адаптация логотипа для мобильных */
+            .logo-img {
+                display: none;
+            }
+            
+            .logo-mobile {
+                display: block;
+                height: 40px;
+            }
+            
+            .logo-text .logo-main {
+                font-size: 16px;
+            }
+            
+            .logo-text .logo-sub {
+                font-size: 11px;
+            }
         }
         
         @media (max-width: 576px) {
@@ -1061,6 +1094,14 @@
             
             .contact-card {
                 padding: 30px 20px;
+            }
+            
+            .logo-text {
+                display: none;
+            }
+            
+            .logo-mobile {
+                height: 35px;
             }
         }
         
@@ -1148,13 +1189,20 @@
     <!-- Шапка -->
     <header id="header">
         <div class="container header-container">
-            <div class="logo">
-                <div class="logo-icon">ASC</div>
+            <a href="#hero" class="logo">
+                <!-- Основной логотип -->
+                <img src="https://raw.githubusercontent.com/nyaganmaksimov-sys/asc/268d812a3329eca5b78ec9a2a1557190227cd0ca/images/%D0%BB%D0%BE%D0%B3%D0%BE%D1%82%D0%B8%D0%BF.png" 
+                     alt="Логотип Ассоциации сервисных центров Нягань" 
+                     class="logo-img">
+                <!-- Упрощенный логотип для мобильных -->
+                <img src="https://raw.githubusercontent.com/nyaganmaksimov-sys/asc/268d812a3329eca5b78ec9a2a1557190227cd0ca/images/%D0%BB%D0%BE%D0%B3%D0%BE%D1%82%D0%B8%D0%BF.png" 
+                     alt="Логотип Ассоциации сервисных центров Нягань" 
+                     class="logo-mobile">
                 <div class="logo-text">
                     <div class="logo-main">Ассоциация сервисных центров</div>
                     <div class="logo-sub">Нягань | Ремонт техники и печать документов</div>
                 </div>
-            </div>
+            </a>
             
             <nav class="nav-menu" id="navMenu">
                 <a href="#services" class="nav-link">Услуги</a>
@@ -1178,7 +1226,7 @@
     </header>
 
     <!-- Герой секция -->
-    <section class="hero">
+    <section class="hero" id="hero">
         <div class="container">
             <div class="hero-content fade-in">
                 <h1 class="hero-title">Профессиональный ремонт техники и <span class="text-yellow">печать документов</span> в Нягани</h1>
@@ -1579,8 +1627,15 @@
         <div class="container">
             <div class="footer-grid">
                 <div class="footer-col">
-                    <h3>Ассоциация сервисных центров</h3>
-                    <p>Профессиональный ремонт техники и печать документов в Нягани. Работаем с 2020 года.</p>
+                    <div class="footer-logo">
+                        <img src="https://raw.githubusercontent.com/nyaganmaksimov-sys/asc/268d812a3329eca5b78ec9a2a1557190227cd0ca/images/%D0%BB%D0%BE%D0%B3%D0%BE%D1%82%D0%B8%D0%BF.png" 
+                             alt="Логотип Ассоциации сервисных центров Нягань" 
+                             class="footer-logo-img">
+                        <div>
+                            <h3>Ассоциация сервисных центров</h3>
+                            <p>Профессиональный ремонт техники и печать документов в Нягани. Работаем с 2020 года.</p>
+                        </div>
+                    </div>
                     <div class="social-links">
                         <a href="https://t.me/asc_Nyagan" target="_blank" class="social-link">
                             <i class="fab fa-telegram"></i>
