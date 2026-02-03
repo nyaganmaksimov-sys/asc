@@ -1,0 +1,518 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ассоциация сервисных центров — Нягань</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        /* Основные стили */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        :root {
+            --primary-yellow: #FFD700;
+            --dark-yellow: #FFA500;
+            --primary-black: #121212;
+            --light-black: #222222;
+            --gray: #333333;
+            --light-gray: #f5f5f5;
+            --white: #ffffff;
+        }
+        
+        body {
+            background-color: var(--primary-black);
+            color: var(--white);
+            line-height: 1.6;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        /* Шапка сайта */
+        header {
+            background-color: var(--primary-black);
+            border-bottom: 4px solid var(--primary-yellow);
+            padding: 20px 0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+        }
+        
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+        
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+        
+        .logo-icon {
+            background-color: var(--primary-yellow);
+            color: var(--primary-black);
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 28px;
+            font-weight: bold;
+        }
+        
+        .logo-text {
+            font-size: 24px;
+            font-weight: 800;
+            color: var(--primary-yellow);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        
+        .logo-text span {
+            color: var(--white);
+            font-weight: 500;
+        }
+        
+        /* Основной контент */
+        .hero {
+            background: linear-gradient(rgba(18, 18, 18, 0.9), rgba(18, 18, 18, 0.9)), url('https://images.unsplash.com/photo-1581094794329-c8112a89af12?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80');
+            background-size: cover;
+            background-position: center;
+            padding: 80px 0;
+            text-align: center;
+            border-bottom: 4px solid var(--primary-yellow);
+        }
+        
+        .hero h1 {
+            font-size: 42px;
+            margin-bottom: 20px;
+            color: var(--primary-yellow);
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8);
+        }
+        
+        .hero p {
+            font-size: 20px;
+            max-width: 800px;
+            margin: 0 auto 30px;
+            color: var(--white);
+        }
+        
+        .highlight {
+            background-color: var(--primary-yellow);
+            color: var(--primary-black);
+            padding: 5px 10px;
+            border-radius: 4px;
+            font-weight: bold;
+        }
+        
+        /* Секция услуг */
+        .services {
+            padding: 80px 0;
+            background-color: var(--light-black);
+        }
+        
+        .section-title {
+            text-align: center;
+            font-size: 36px;
+            margin-bottom: 50px;
+            color: var(--primary-yellow);
+            position: relative;
+        }
+        
+        .section-title::after {
+            content: '';
+            position: absolute;
+            width: 80px;
+            height: 4px;
+            background-color: var(--primary-yellow);
+            bottom: -15px;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+        
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+        
+        .service-card {
+            background-color: var(--gray);
+            border-radius: 10px;
+            padding: 30px;
+            text-align: center;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            border-top: 4px solid var(--primary-yellow);
+        }
+        
+        .service-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 10px 20px rgba(255, 215, 0, 0.2);
+        }
+        
+        .service-icon {
+            font-size: 40px;
+            color: var(--primary-yellow);
+            margin-bottom: 20px;
+        }
+        
+        .service-card h3 {
+            font-size: 24px;
+            margin-bottom: 15px;
+            color: var(--primary-yellow);
+        }
+        
+        /* Секция контактов */
+        .contacts {
+            padding: 80px 0;
+            background-color: var(--primary-black);
+        }
+        
+        .contacts-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 40px;
+        }
+        
+        .contact-info {
+            background-color: var(--light-black);
+            padding: 30px;
+            border-radius: 10px;
+            border-left: 4px solid var(--primary-yellow);
+        }
+        
+        .contact-info h3 {
+            color: var(--primary-yellow);
+            font-size: 26px;
+            margin-bottom: 25px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .contact-item {
+            display: flex;
+            align-items: flex-start;
+            margin-bottom: 20px;
+            padding-bottom: 20px;
+            border-bottom: 1px solid var(--gray);
+        }
+        
+        .contact-item:last-child {
+            border-bottom: none;
+            margin-bottom: 0;
+            padding-bottom: 0;
+        }
+        
+        .contact-icon {
+            color: var(--primary-yellow);
+            font-size: 22px;
+            margin-right: 15px;
+            min-width: 30px;
+        }
+        
+        .contact-text {
+            flex: 1;
+        }
+        
+        .contact-text p {
+            margin-bottom: 5px;
+        }
+        
+        .contact-link {
+            color: var(--primary-yellow);
+            text-decoration: none;
+            font-weight: 600;
+            transition: color 0.3s ease;
+        }
+        
+        .contact-link:hover {
+            color: var(--dark-yellow);
+            text-decoration: underline;
+        }
+        
+        /* Подвал */
+        footer {
+            background-color: var(--light-black);
+            border-top: 4px solid var(--primary-yellow);
+            padding: 30px 0;
+            text-align: center;
+        }
+        
+        .footer-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+        
+        .copyright {
+            color: var(--white);
+            font-size: 16px;
+        }
+        
+        .social-links {
+            display: flex;
+            gap: 15px;
+        }
+        
+        .social-link {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            background-color: var(--gray);
+            color: var(--primary-yellow);
+            border-radius: 50%;
+            font-size: 18px;
+            transition: all 0.3s ease;
+            text-decoration: none;
+        }
+        
+        .social-link:hover {
+            background-color: var(--primary-yellow);
+            color: var(--primary-black);
+            transform: scale(1.1);
+        }
+        
+        /* Адаптивность */
+        @media (max-width: 768px) {
+            .header-content {
+                justify-content: center;
+                text-align: center;
+                gap: 15px;
+            }
+            
+            .hero h1 {
+                font-size: 32px;
+            }
+            
+            .hero p {
+                font-size: 18px;
+                padding: 0 10px;
+            }
+            
+            .section-title {
+                font-size: 28px;
+            }
+            
+            .footer-content {
+                justify-content: center;
+            }
+            
+            .contact-info h3 {
+                font-size: 22px;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .logo {
+                flex-direction: column;
+                text-align: center;
+            }
+            
+            .hero h1 {
+                font-size: 28px;
+            }
+            
+            .service-card {
+                padding: 20px;
+            }
+            
+            .contact-info {
+                padding: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Шапка сайта -->
+    <header>
+        <div class="container">
+            <div class="header-content">
+                <div class="logo">
+                    <div class="logo-icon">ASC</div>
+                    <div class="logo-text">Ассоциация сервисных центров <span>— Нягань</span></div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Основной контент -->
+    <main>
+        <section class="hero">
+            <div class="container">
+                <h1>Уважаемые клиенты!</h1>
+                <p>Мы предоставляем полный спектр услуг по ремонту цифровой техники и печати документов с доставкой по Нягани.</p>
+                <p>Качественный ремонт, профессиональные мастера и оперативное выполнение заказов!</p>
+            </div>
+        </section>
+
+        <section class="services">
+            <div class="container">
+                <h2 class="section-title">🔧 Что можно заказать:</h2>
+                <div class="services-grid">
+                    <div class="service-card">
+                        <div class="service-icon">
+                            <i class="fas fa-print"></i>
+                        </div>
+                        <h3>Распечатку документов</h3>
+                        <p>Распечатка документов с доставкой по Нягани! Четкая печать, любые форматы и срочное выполнение заказов.</p>
+                    </div>
+                    
+                    <div class="service-card">
+                        <div class="service-icon">
+                            <i class="fas fa-tools"></i>
+                        </div>
+                        <h3>Вызов мастера на дом</h3>
+                        <p>Вызов мастера на дом для ремонта телефонов, ноутбуков, телевизоров. Диагностика и ремонт на дому.</p>
+                    </div>
+                    
+                    <div class="service-card">
+                        <div class="service-icon">
+                            <i class="fas fa-comments"></i>
+                        </div>
+                        <h3>Консультация по ремонту</h3>
+                        <p>Консультацию по ремонту и стоимости работ. Уточнение статуса вашего заказа в любое время.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="contacts">
+            <div class="container">
+                <h2 class="section-title">📍 Напоминаем наши контакты:</h2>
+                <div class="contacts-container">
+                    <div class="contact-info">
+                        <h3><i class="fas fa-map-marker-alt"></i> Адрес и телефон</h3>
+                        
+                        <div class="contact-item">
+                            <div class="contact-icon">
+                                <i class="fas fa-map-pin"></i>
+                            </div>
+                            <div class="contact-text">
+                                <p><strong>Адрес:</strong></p>
+                                <p>г. Нягань, ул. Интернациональная, 82а, ТЦ «Сибиряк»</p>
+                            </div>
+                        </div>
+                        
+                        <div class="contact-item">
+                            <div class="contact-icon">
+                                <i class="fas fa-phone-alt"></i>
+                            </div>
+                            <div class="contact-text">
+                                <p><strong>Телефон:</strong></p>
+                                <p><a href="tel:+79224220025" class="contact-link">+7 (922) 422-00-25</a></p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="contact-info">
+                        <h3><i class="fas fa-paper-plane"></i> Наши соцсети</h3>
+                        
+                        <div class="contact-item">
+                            <div class="contact-icon">
+                                <i class="fab fa-telegram"></i>
+                            </div>
+                            <div class="contact-text">
+                                <p><strong>Telegram:</strong></p>
+                                <p><a href="https://t.me/asc_Nyagan" target="_blank" class="contact-link">t.me/asc_Nyagan</a></p>
+                            </div>
+                        </div>
+                        
+                        <div class="contact-item">
+                            <div class="contact-icon">
+                                <i class="fab fa-vk"></i>
+                            </div>
+                            <div class="contact-text">
+                                <p><strong>ВКонтакте:</strong></p>
+                                <p><a href="https://vk.ru/asc_nyagan" target="_blank" class="contact-link">vk.ru/asc_nyagan</a></p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Подвал -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="copyright">
+                    <p>© 2023 Ассоциация сервисных центров — Нягань. Все права защищены.</p>
+                </div>
+                <div class="social-links">
+                    <a href="https://t.me/asc_Nyagan" target="_blank" class="social-link">
+                        <i class="fab fa-telegram"></i>
+                    </a>
+                    <a href="https://vk.ru/asc_nyagan" target="_blank" class="social-link">
+                        <i class="fab fa-vk"></i>
+                    </a>
+                    <a href="tel:+79224220025" class="social-link">
+                        <i class="fas fa-phone-alt"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Простой скрипт для плавного скролла
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                
+                const targetId = this.getAttribute('href');
+                if(targetId === '#') return;
+                
+                const targetElement = document.querySelector(targetId);
+                if(targetElement) {
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 80,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+        
+        // Анимация карточек услуг при прокрутке
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+        
+        const observer = new IntersectionObserver(function(entries) {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, observerOptions);
+        
+        // Применяем анимацию к карточкам услуг
+        document.querySelectorAll('.service-card').forEach(card => {
+            card.style.opacity = '0';
+            card.style.transform = 'translateY(20px)';
+            card.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
+            observer.observe(card);
+        });
+    </script>
+</body>
+</html>
