@@ -7,32 +7,25 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800&family=Roboto:wght@300;400;500&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
     <style>
-        /* CSS переменные для цветов и эффектов */
+        /* CSS переменные для минималистичного дизайна */
         :root {
             --primary-black: #000000;
             --primary-yellow: #FFD700;
-            --dark-yellow: #FFC800;
-            --light-yellow: #FFF9C4;
-            --gradient-yellow: linear-gradient(135deg, #FFD700 0%, #FFC800 100%);
-            --gradient-black: linear-gradient(135deg, #000000 0%, #333333 100%);
-            --gradient-section: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
-            --light-gray: #F8F9FA;
-            --medium-gray: #E9ECEF;
-            --dark-gray: #6C757D;
+            --light-yellow: #FFFBE6;
             --white: #FFFFFF;
-            --shadow: rgba(0, 0, 0, 0.1);
-            --shadow-hover: rgba(0, 0, 0, 0.2);
-            --transition-fast: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-            --transition-medium: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
-            --transition-slow: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
-            --border-radius: 12px;
-            --border-radius-lg: 20px;
-            --border-radius-xl: 30px;
+            --light-gray: #F8F8F8;
+            --medium-gray: #E8E8E8;
+            --dark-gray: #666666;
+            --text-gray: #333333;
+            --border-color: #E0E0E0;
+            --shadow: rgba(0, 0, 0, 0.05);
+            --shadow-hover: rgba(0, 0, 0, 0.08);
+            --transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
         }
         
-        /* Глобальные стили */
+        /* Сброс и базовые стили */
         * {
             margin: 0;
             padding: 0;
@@ -41,143 +34,48 @@
         
         html {
             scroll-behavior: smooth;
-            overflow-x: hidden;
         }
         
         body {
-            font-family: 'Roboto', sans-serif;
-            line-height: 1.7;
-            color: var(--primary-black);
+            font-family: 'Inter', sans-serif;
+            font-weight: 400;
+            line-height: 1.6;
+            color: var(--text-gray);
             background-color: var(--white);
             overflow-x: hidden;
-            position: relative;
-        }
-        
-        body::before {
-            content: '';
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: 
-                radial-gradient(circle at 10% 20%, rgba(255, 215, 0, 0.05) 0%, transparent 20%),
-                radial-gradient(circle at 90% 80%, rgba(255, 215, 0, 0.05) 0%, transparent 20%);
-            z-index: -1;
-            pointer-events: none;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
         }
         
         h1, h2, h3, h4, h5 {
-            font-family: 'Montserrat', sans-serif;
-            font-weight: 700;
+            font-family: 'Space Grotesk', sans-serif;
+            font-weight: 600;
             line-height: 1.3;
+            color: var(--primary-black);
         }
         
         .container {
             width: 100%;
-            max-width: 1200px;
+            max-width: 1100px;
             margin: 0 auto;
             padding: 0 20px;
         }
         
         section {
-            position: relative;
-            overflow: hidden;
+            padding: 80px 0;
         }
         
-        /* Анимации */
-        @keyframes fadeIn {
-            from { opacity: 0; }
-            to { opacity: 1; }
-        }
-        
-        @keyframes slideUp {
-            from { 
-                opacity: 0;
-                transform: translateY(50px);
-            }
-            to { 
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-        
-        @keyframes slideLeft {
-            from { 
-                opacity: 0;
-                transform: translateX(-50px);
-            }
-            to { 
-                opacity: 1;
-                transform: translateX(0);
-            }
-        }
-        
-        @keyframes slideRight {
-            from { 
-                opacity: 0;
-                transform: translateX(50px);
-            }
-            to { 
-                opacity: 1;
-                transform: translateX(0);
-            }
-        }
-        
-        @keyframes float {
-            0%, 100% { transform: translateY(0); }
-            50% { transform: translateY(-15px); }
-        }
-        
-        @keyframes pulse {
-            0%, 100% { transform: scale(1); }
-            50% { transform: scale(1.05); }
-        }
-        
-        @keyframes shine {
-            0% { background-position: -200% center; }
-            100% { background-position: 200% center; }
-        }
-        
-        @keyframes rotate {
-            from { transform: rotate(0deg); }
-            to { transform: rotate(360deg); }
-        }
-        
-        @keyframes gradientShift {
-            0% { background-position: 0% 50%; }
-            50% { background-position: 100% 50%; }
-            100% { background-position: 0% 50%; }
-        }
-        
-        .animate {
-            opacity: 0;
-            transform: translateY(30px);
-            transition: var(--transition-medium);
-        }
-        
-        .animate.animated {
-            opacity: 1;
-            transform: translateY(0);
-        }
-        
-        /* Хедер */
+        /* Хедер - минималистичный */
         header {
             position: fixed;
             top: 0;
             left: 0;
             width: 100%;
-            z-index: 1000;
-            background-color: rgba(255, 255, 255, 0.95);
-            backdrop-filter: blur(10px);
-            box-shadow: 0 5px 30px rgba(0, 0, 0, 0.1);
-            transition: var(--transition-fast);
-        }
-        
-        header.scrolled {
-            padding: 5px 0;
+            z-index: 100;
             background-color: rgba(255, 255, 255, 0.98);
-            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.15);
+            border-bottom: 1px solid var(--border-color);
+            backdrop-filter: blur(10px);
+            transition: var(--transition);
         }
         
         .header-container {
@@ -185,437 +83,291 @@
             justify-content: space-between;
             align-items: center;
             padding: 20px 0;
-            transition: var(--transition-fast);
-        }
-        
-        header.scrolled .header-container {
-            padding: 10px 0;
         }
         
         .logo {
             display: flex;
             align-items: center;
             text-decoration: none;
-            animation: slideLeft 1s ease-out;
         }
         
         .logo-icon {
-            width: 50px;
-            height: 50px;
-            background: var(--gradient-yellow);
-            border-radius: 50%;
+            width: 40px;
+            height: 40px;
+            background-color: var(--primary-yellow);
+            border-radius: 8px;
             display: flex;
             align-items: center;
             justify-content: center;
-            margin-right: 15px;
+            margin-right: 12px;
             color: var(--primary-black);
-            font-size: 1.5rem;
-            box-shadow: 0 5px 15px rgba(255, 215, 0, 0.3);
-            transition: var(--transition-fast);
-        }
-        
-        .logo:hover .logo-icon {
-            transform: rotate(15deg) scale(1.1);
+            font-size: 1.2rem;
         }
         
         .logo-text {
-            display: flex;
-            flex-direction: column;
-        }
-        
-        .logo-main {
-            font-family: 'Montserrat', sans-serif;
-            font-weight: 800;
-            font-size: 1.2rem;
-            color: var(--primary-black);
-            letter-spacing: 0.5px;
-        }
-        
-        .logo-sub {
-            font-size: 0.9rem;
-            color: var(--dark-gray);
-            font-weight: 500;
-        }
-        
-        .logo-city {
-            color: var(--primary-yellow);
+            font-family: 'Space Grotesk', sans-serif;
             font-weight: 700;
+            font-size: 1.1rem;
+            color: var(--primary-black);
+        }
+        
+        .logo-text span {
+            color: var(--primary-yellow);
         }
         
         nav ul {
             display: flex;
             list-style: none;
-            animation: fadeIn 1s ease-out 0.3s both;
         }
         
         nav ul li {
-            margin-left: 30px;
-            position: relative;
+            margin-left: 32px;
         }
         
         nav ul li a {
             text-decoration: none;
-            color: var(--primary-black);
-            font-weight: 600;
-            font-size: 1rem;
+            color: var(--text-gray);
+            font-weight: 500;
+            font-size: 0.95rem;
+            transition: var(--transition);
             position: relative;
-            padding: 5px 0;
-            transition: var(--transition-fast);
-        }
-        
-        nav ul li a::after {
-            content: '';
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            width: 0;
-            height: 3px;
-            background: var(--gradient-yellow);
-            border-radius: 3px;
-            transition: var(--transition-fast);
         }
         
         nav ul li a:hover {
-            color: var(--primary-yellow);
+            color: var(--primary-black);
         }
         
-        nav ul li a:hover::after {
+        nav ul li a.active {
+            color: var(--primary-black);
+            font-weight: 600;
+        }
+        
+        nav ul li a.active::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
             width: 100%;
+            height: 2px;
+            background-color: var(--primary-yellow);
         }
         
         .header-buttons {
             display: flex;
             align-items: center;
             gap: 15px;
-            animation: slideRight 1s ease-out 0.5s both;
         }
         
         .phone-link {
             display: flex;
             align-items: center;
             text-decoration: none;
-            color: var(--primary-black);
-            font-weight: 600;
-            background-color: var(--light-gray);
-            padding: 10px 15px;
-            border-radius: 50px;
-            transition: var(--transition-fast);
+            color: var(--text-gray);
+            font-weight: 500;
+            font-size: 0.95rem;
+            transition: var(--transition);
         }
         
         .phone-link:hover {
-            background-color: var(--primary-yellow);
-            transform: translateY(-3px);
-            box-shadow: 0 5px 15px var(--shadow);
+            color: var(--primary-black);
         }
         
         .phone-link i {
-            margin-right: 8px;
-            color: var(--primary-yellow);
-            transition: var(--transition-fast);
-        }
-        
-        .phone-link:hover i {
-            color: var(--primary-black);
+            margin-right: 6px;
+            font-size: 0.9rem;
         }
         
         .order-btn {
-            background: var(--gradient-yellow);
+            background-color: var(--primary-yellow);
             color: var(--primary-black);
             border: none;
-            padding: 12px 25px;
-            border-radius: 50px;
-            font-weight: 700;
+            padding: 10px 20px;
+            border-radius: 6px;
+            font-weight: 600;
+            font-size: 0.95rem;
             cursor: pointer;
-            transition: var(--transition-fast);
-            display: flex;
-            align-items: center;
-            gap: 8px;
-            box-shadow: 0 5px 15px rgba(255, 215, 0, 0.3);
-            position: relative;
-            overflow: hidden;
-        }
-        
-        .order-btn::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: -100%;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
-            transition: var(--transition-medium);
+            transition: var(--transition);
         }
         
         .order-btn:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 10px 25px rgba(255, 215, 0, 0.5);
-        }
-        
-        .order-btn:hover::before {
-            left: 100%;
+            background-color: var(--primary-black);
+            color: var(--primary-yellow);
         }
         
         .mobile-menu-btn {
             display: none;
             background: none;
             border: none;
-            font-size: 1.8rem;
+            font-size: 1.3rem;
             cursor: pointer;
             color: var(--primary-black);
-            transition: var(--transition-fast);
         }
         
-        .mobile-menu-btn:hover {
-            color: var(--primary-yellow);
-        }
-        
-        /* Геро-секция */
+        /* Геро-секция - чистая и аккуратная */
         .hero {
-            padding: 180px 0 120px;
-            background: var(--gradient-section);
-            position: relative;
-            overflow: hidden;
-        }
-        
-        .hero::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background-image: 
-                radial-gradient(circle at 20% 30%, rgba(255, 215, 0, 0.1) 0%, transparent 30%),
-                radial-gradient(circle at 80% 70%, rgba(255, 215, 0, 0.1) 0%, transparent 30%);
-            z-index: 0;
+            padding: 140px 0 100px;
+            background-color: var(--light-gray);
+            border-bottom: 1px solid var(--border-color);
         }
         
         .hero-container {
-            position: relative;
-            z-index: 1;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: center;
         }
         
-        .hero-content {
-            max-width: 800px;
-            animation: slideUp 1s ease-out 0.7s both;
-        }
-        
-        .hero-title {
-            font-size: 3.5rem;
-            margin-bottom: 25px;
-            background: linear-gradient(90deg, var(--primary-black) 0%, var(--primary-yellow) 100%);
-            -webkit-background-clip: text;
-            background-clip: text;
-            color: transparent;
+        .hero-content h1 {
+            font-size: 2.8rem;
+            margin-bottom: 20px;
             line-height: 1.2;
         }
         
-        .hero-subtitle {
-            font-size: 1.3rem;
+        .hero-content p {
+            font-size: 1.1rem;
             color: var(--dark-gray);
             margin-bottom: 40px;
-            font-weight: 400;
+            max-width: 500px;
         }
         
         .hero-buttons {
             display: flex;
-            gap: 20px;
-            flex-wrap: wrap;
+            gap: 15px;
         }
         
         .hero-btn {
-            padding: 18px 35px;
-            border-radius: 50px;
-            font-weight: 700;
-            font-size: 1.1rem;
+            padding: 14px 28px;
+            border-radius: 6px;
+            font-weight: 600;
+            font-size: 1rem;
             cursor: pointer;
-            transition: var(--transition-fast);
-            display: flex;
-            align-items: center;
-            gap: 12px;
-            position: relative;
-            overflow: hidden;
-            border: none;
-            box-shadow: 0 10px 30px var(--shadow);
-        }
-        
-        .hero-btn.print {
-            background: var(--gradient-yellow);
+            transition: var(--transition);
+            border: 1px solid var(--primary-black);
+            background-color: var(--white);
             color: var(--primary-black);
         }
         
-        .hero-btn.repair {
-            background: var(--gradient-black);
+        .hero-btn.primary {
+            background-color: var(--primary-black);
             color: var(--white);
+            border-color: var(--primary-black);
         }
         
-        .hero-btn::before {
-            content: '';
+        .hero-btn.secondary:hover {
+            background-color: var(--light-gray);
+        }
+        
+        .hero-btn.primary:hover {
+            background-color: var(--primary-yellow);
+            color: var(--primary-black);
+            border-color: var(--primary-yellow);
+        }
+        
+        .hero-visual {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        
+        .visual-container {
+            width: 100%;
+            max-width: 400px;
+            height: 300px;
+            position: relative;
+        }
+        
+        .visual-box {
             position: absolute;
+            width: 200px;
+            height: 200px;
+            border: 1px solid var(--border-color);
+            background-color: var(--white);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            border-radius: 8px;
+            box-shadow: 0 5px 20px var(--shadow);
+        }
+        
+        .visual-box.print {
             top: 0;
-            left: -100%;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
-            transition: var(--transition-medium);
+            left: 0;
+            z-index: 2;
         }
         
-        .hero-btn:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 15px 40px var(--shadow-hover);
-        }
-        
-        .hero-btn:hover::before {
-            left: 100%;
-        }
-        
-        .hero-btn i {
-            font-size: 1.3rem;
-        }
-        
-        .hero-image {
-            position: absolute;
+        .visual-box.repair {
+            bottom: 0;
             right: 0;
-            top: 50%;
-            transform: translateY(-50%);
-            width: 45%;
-            height: 80%;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            opacity: 0;
-            animation: slideRight 1s ease-out 1s both;
-        }
-        
-        .floating-icons {
-            position: relative;
-            width: 100%;
-            height: 100%;
-        }
-        
-        .floating-icon {
-            position: absolute;
-            width: 80px;
-            height: 80px;
-            background: var(--white);
-            border-radius: var(--border-radius-lg);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 2.5rem;
-            box-shadow: 0 15px 40px var(--shadow);
-            animation: float 4s ease-in-out infinite;
-        }
-        
-        .floating-icon:nth-child(1) {
-            top: 20%;
-            left: 10%;
-            background: var(--gradient-yellow);
-            animation-delay: 0s;
-        }
-        
-        .floating-icon:nth-child(2) {
-            top: 50%;
-            left: 40%;
-            background: var(--white);
-            animation-delay: 1s;
-        }
-        
-        .floating-icon:nth-child(3) {
-            top: 20%;
-            right: 20%;
-            background: var(--gradient-yellow);
-            animation-delay: 2s;
-        }
-        
-        .floating-icon:nth-child(4) {
-            bottom: 20%;
-            left: 20%;
-            background: var(--white);
-            animation-delay: 3s;
-        }
-        
-        /* Секции услуг */
-        .section-title {
-            text-align: center;
-            margin-bottom: 60px;
-            position: relative;
-        }
-        
-        .section-title h2 {
-            font-size: 2.8rem;
-            display: inline-block;
-            position: relative;
             z-index: 1;
         }
         
-        .section-title .title-bg {
-            font-size: 4.5rem;
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            color: rgba(0, 0, 0, 0.05);
-            font-weight: 900;
-            white-space: nowrap;
-            z-index: 0;
+        .visual-icon {
+            font-size: 2.5rem;
+            margin-bottom: 15px;
         }
         
+        .visual-label {
+            font-weight: 600;
+            font-size: 1.1rem;
+        }
+        
+        /* Секции - минималистичные */
+        .section-title {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+        
+        .section-title h2 {
+            font-size: 2.2rem;
+            margin-bottom: 10px;
+        }
+        
+        .section-title p {
+            color: var(--dark-gray);
+            max-width: 600px;
+            margin: 0 auto;
+        }
+        
+        /* Секция услуг */
         .services-section {
-            padding: 120px 0;
             background-color: var(--white);
         }
         
-        .service-cards {
+        .services-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-            gap: 40px;
-            margin-top: 40px;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
         }
         
         .service-card {
-            background: var(--white);
-            border-radius: var(--border-radius-xl);
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
             padding: 40px 30px;
-            box-shadow: 0 15px 50px var(--shadow);
-            transition: var(--transition-medium);
-            position: relative;
-            overflow: hidden;
-            border: 1px solid var(--medium-gray);
-        }
-        
-        .service-card::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 5px;
-            background: var(--gradient-yellow);
+            background-color: var(--white);
+            transition: var(--transition);
         }
         
         .service-card:hover {
-            transform: translateY(-20px);
-            box-shadow: 0 25px 70px var(--shadow-hover);
+            border-color: var(--primary-yellow);
+            box-shadow: 0 10px 30px var(--shadow);
         }
         
         .service-icon {
-            width: 80px;
-            height: 80px;
-            background: var(--gradient-yellow);
-            border-radius: 50%;
+            width: 60px;
+            height: 60px;
+            background-color: var(--light-yellow);
+            border-radius: 8px;
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 2.5rem;
             margin-bottom: 25px;
-            box-shadow: 0 10px 30px rgba(255, 215, 0, 0.3);
+            font-size: 1.8rem;
         }
         
         .service-card h3 {
-            font-size: 1.8rem;
+            font-size: 1.5rem;
             margin-bottom: 20px;
-            color: var(--primary-black);
         }
         
         .service-features {
@@ -625,24 +377,24 @@
         
         .service-features li {
             margin-bottom: 12px;
-            padding-left: 30px;
+            padding-left: 24px;
             position: relative;
         }
         
         .service-features li::before {
-            content: '✓';
+            content: '';
             position: absolute;
             left: 0;
-            color: var(--primary-yellow);
-            font-weight: bold;
-            font-size: 1.2rem;
+            top: 10px;
+            width: 8px;
+            height: 8px;
+            background-color: var(--primary-yellow);
+            border-radius: 50%;
         }
         
         .service-price {
-            background: var(--light-yellow);
-            padding: 20px;
-            border-radius: var(--border-radius);
-            margin-top: 20px;
+            padding-top: 20px;
+            border-top: 1px solid var(--border-color);
         }
         
         .price-item {
@@ -650,7 +402,7 @@
             justify-content: space-between;
             margin-bottom: 10px;
             padding-bottom: 10px;
-            border-bottom: 1px dashed var(--medium-gray);
+            border-bottom: 1px solid var(--border-color);
         }
         
         .price-item:last-child {
@@ -660,330 +412,236 @@
         }
         
         .highlight {
-            background: var(--gradient-yellow);
-            background-size: 200% auto;
-            color: var(--primary-black);
-            font-weight: 700;
-            padding: 5px 15px;
-            border-radius: 50px;
             display: inline-block;
-            margin-top: 15px;
-            animation: shine 3s linear infinite;
+            background-color: var(--light-yellow);
+            color: var(--primary-black);
+            padding: 8px 16px;
+            border-radius: 6px;
+            font-weight: 500;
+            margin-top: 20px;
+            font-size: 0.9rem;
         }
         
-        /* Секция преимуществ */
-        .benefits-section {
-            padding: 120px 0;
-            background: var(--gradient-section);
-            position: relative;
-            overflow: hidden;
+        /* Секция как это работает */
+        .process-section {
+            background-color: var(--light-gray);
+            border-top: 1px solid var(--border-color);
+            border-bottom: 1px solid var(--border-color);
         }
         
-        .benefits-grid {
+        .process-steps {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
             gap: 30px;
+            max-width: 900px;
+            margin: 0 auto;
         }
         
-        .benefit-item {
-            background: var(--white);
-            border-radius: var(--border-radius-lg);
-            padding: 30px;
+        .process-step {
             text-align: center;
-            box-shadow: 0 10px 40px var(--shadow);
-            transition: var(--transition-medium);
-            position: relative;
-            overflow: hidden;
         }
         
-        .benefit-item:hover {
-            transform: translateY(-15px);
-            box-shadow: 0 20px 60px var(--shadow-hover);
-        }
-        
-        .benefit-icon {
-            width: 70px;
-            height: 70px;
-            background: var(--gradient-yellow);
+        .step-number {
+            width: 50px;
+            height: 50px;
+            background-color: var(--primary-yellow);
+            color: var(--primary-black);
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 2rem;
+            font-weight: 700;
+            font-size: 1.2rem;
             margin: 0 auto 20px;
-            box-shadow: 0 10px 30px rgba(255, 215, 0, 0.3);
         }
         
-        .benefit-item h4 {
-            font-size: 1.4rem;
+        .process-step h4 {
+            font-size: 1.2rem;
             margin-bottom: 10px;
         }
         
         /* Секция контактов */
         .contacts-section {
-            padding: 120px 0;
             background-color: var(--white);
         }
         
         .contacts-container {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            grid-template-columns: 1fr 1fr;
             gap: 50px;
         }
         
         .contact-info {
-            background: var(--gradient-section);
-            border-radius: var(--border-radius-xl);
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
             padding: 40px;
-            box-shadow: 0 15px 50px var(--shadow);
         }
         
         .contact-item {
             display: flex;
             align-items: flex-start;
             margin-bottom: 30px;
-            padding-bottom: 30px;
-            border-bottom: 1px solid var(--medium-gray);
         }
         
         .contact-item:last-child {
             margin-bottom: 0;
-            padding-bottom: 0;
-            border-bottom: none;
         }
         
         .contact-icon {
-            width: 60px;
-            height: 60px;
-            background: var(--gradient-yellow);
-            border-radius: 50%;
+            width: 40px;
+            height: 40px;
+            background-color: var(--light-yellow);
+            border-radius: 8px;
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 1.5rem;
-            margin-right: 20px;
+            margin-right: 15px;
             flex-shrink: 0;
             color: var(--primary-black);
-            box-shadow: 0 5px 20px rgba(255, 215, 0, 0.3);
         }
         
         .contact-text h4 {
-            font-size: 1.3rem;
-            margin-bottom: 8px;
+            font-size: 1.1rem;
+            margin-bottom: 5px;
         }
         
         .contact-text a {
-            color: var(--primary-black);
+            color: var(--text-gray);
             text-decoration: none;
-            transition: var(--transition-fast);
-            font-weight: 500;
+            transition: var(--transition);
         }
         
         .contact-text a:hover {
-            color: var(--primary-yellow);
+            color: var(--primary-black);
         }
         
         .contact-map {
-            border-radius: var(--border-radius-xl);
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
             overflow: hidden;
-            box-shadow: 0 15px 50px var(--shadow);
-            height: 100%;
-            min-height: 400px;
-            background-color: var(--medium-gray);
+            height: 400px;
+            background-color: var(--light-gray);
             display: flex;
-            align-items: center;
+            flex-direction: column;
             justify-content: center;
-            font-size: 1.2rem;
-            color: var(--dark-gray);
-            position: relative;
+            align-items: center;
         }
         
-        .contact-map::before {
-            content: '📍 г. Нягань ул. Интернациональная, 82а, ТЦ «Сибиряк»';
-            position: absolute;
-            bottom: 20px;
-            left: 20px;
-            background: var(--white);
-            padding: 15px 20px;
-            border-radius: var(--border-radius);
-            box-shadow: 0 5px 20px var(--shadow);
-            font-weight: 600;
+        .map-placeholder {
+            text-align: center;
+            padding: 20px;
+        }
+        
+        .map-placeholder i {
+            font-size: 3rem;
+            color: var(--dark-gray);
+            margin-bottom: 15px;
         }
         
         /* Секция акций */
         .promo-section {
-            padding: 120px 0;
-            background: var(--gradient-section);
-            position: relative;
-            overflow: hidden;
+            background-color: var(--light-gray);
+            border-top: 1px solid var(--border-color);
         }
         
         .promo-cards {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-            gap: 40px;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
         }
         
         .promo-card {
-            background: var(--white);
-            border-radius: var(--border-radius-xl);
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
             padding: 40px 30px;
             text-align: center;
-            box-shadow: 0 15px 50px var(--shadow);
-            transition: var(--transition-medium);
-            position: relative;
-            overflow: hidden;
-        }
-        
-        .promo-card::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: var(--gradient-yellow);
-            opacity: 0;
-            transition: var(--transition-medium);
-            z-index: 0;
-        }
-        
-        .promo-card:hover::before {
-            opacity: 0.1;
+            background-color: var(--white);
+            transition: var(--transition);
         }
         
         .promo-card:hover {
-            transform: translateY(-20px);
-            box-shadow: 0 25px 70px var(--shadow-hover);
-        }
-        
-        .promo-content {
-            position: relative;
-            z-index: 1;
+            border-color: var(--primary-yellow);
+            box-shadow: 0 10px 30px var(--shadow);
         }
         
         .promo-icon {
-            font-size: 4rem;
+            font-size: 2.5rem;
             margin-bottom: 20px;
-            display: inline-block;
-            animation: pulse 2s ease-in-out infinite;
         }
         
         .promo-card h3 {
-            font-size: 1.8rem;
+            font-size: 1.5rem;
             margin-bottom: 15px;
-            color: var(--primary-black);
         }
         
         .promo-code {
-            background: var(--gradient-yellow);
+            background-color: var(--primary-yellow);
             color: var(--primary-black);
-            font-weight: 800;
-            font-size: 1.8rem;
-            padding: 15px 30px;
-            border-radius: 50px;
+            font-weight: 700;
+            font-size: 1.4rem;
+            padding: 12px 24px;
+            border-radius: 6px;
             display: inline-block;
-            margin: 25px 0;
-            letter-spacing: 2px;
-            box-shadow: 0 10px 30px rgba(255, 215, 0, 0.3);
-            position: relative;
-            overflow: hidden;
-        }
-        
-        .promo-code::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: -100%;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.5), transparent);
-            transition: var(--transition-medium);
-        }
-        
-        .promo-card:hover .promo-code::before {
-            left: 100%;
+            margin: 20px 0;
+            letter-spacing: 1px;
         }
         
         /* Футер */
         footer {
-            background: var(--gradient-black);
+            background-color: var(--primary-black);
             color: var(--white);
-            padding: 80px 0 30px;
-            position: relative;
-            overflow: hidden;
-        }
-        
-        footer::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background-image: 
-                radial-gradient(circle at 20% 80%, rgba(255, 215, 0, 0.1) 0%, transparent 30%),
-                radial-gradient(circle at 80% 20%, rgba(255, 215, 0, 0.1) 0%, transparent 30%);
+            padding: 60px 0 30px;
         }
         
         .footer-container {
-            position: relative;
-            z-index: 1;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
         }
         
-        .footer-top {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            margin-bottom: 50px;
-            flex-wrap: wrap;
-            gap: 30px;
+        .footer-logo {
+            margin-bottom: 40px;
         }
         
         .footer-logo .logo-icon {
-            background: var(--gradient-yellow);
-            color: var(--primary-black);
+            background-color: var(--primary-yellow);
         }
         
-        .footer-logo .logo-main {
+        .footer-logo .logo-text {
             color: var(--white);
-        }
-        
-        .footer-logo .logo-sub {
-            color: rgba(255, 255, 255, 0.8);
         }
         
         .social-links {
             display: flex;
             gap: 15px;
+            margin-bottom: 40px;
         }
         
         .social-link {
-            width: 50px;
-            height: 50px;
-            background: rgba(255, 255, 255, 0.1);
-            border-radius: 50%;
+            width: 40px;
+            height: 40px;
+            background-color: rgba(255, 255, 255, 0.1);
+            border-radius: 6px;
             display: flex;
             align-items: center;
             justify-content: center;
             text-decoration: none;
             color: var(--white);
-            font-size: 1.3rem;
-            transition: var(--transition-fast);
-            backdrop-filter: blur(5px);
+            transition: var(--transition);
         }
         
         .social-link:hover {
-            background: var(--gradient-yellow);
+            background-color: var(--primary-yellow);
             color: var(--primary-black);
-            transform: translateY(-5px);
         }
         
         .footer-bottom {
             text-align: center;
             padding-top: 30px;
             border-top: 1px solid rgba(255, 255, 255, 0.1);
+            width: 100%;
             color: rgba(255, 255, 255, 0.7);
+            font-size: 0.9rem;
         }
         
         /* Модальное окно */
@@ -993,14 +651,14 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background-color: rgba(0, 0, 0, 0.8);
+            background-color: rgba(0, 0, 0, 0.5);
             display: flex;
             justify-content: center;
             align-items: center;
-            z-index: 2000;
+            z-index: 1000;
             opacity: 0;
             visibility: hidden;
-            transition: var(--transition-medium);
+            transition: var(--transition);
             backdrop-filter: blur(5px);
         }
         
@@ -1013,16 +671,16 @@
             background: var(--white);
             width: 90%;
             max-width: 500px;
-            border-radius: var(--border-radius-xl);
+            border-radius: 8px;
             padding: 40px;
             position: relative;
-            transform: translateY(50px) scale(0.9);
-            transition: var(--transition-medium);
-            box-shadow: 0 30px 80px rgba(0, 0, 0, 0.3);
+            transform: translateY(20px);
+            transition: var(--transition);
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.1);
         }
         
         .modal-overlay.active .modal {
-            transform: translateY(0) scale(1);
+            transform: translateY(0);
         }
         
         .modal-close {
@@ -1031,77 +689,65 @@
             right: 20px;
             background: none;
             border: none;
-            font-size: 1.5rem;
+            font-size: 1.3rem;
             cursor: pointer;
             color: var(--dark-gray);
-            transition: var(--transition-fast);
-            width: 40px;
-            height: 40px;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
+            transition: var(--transition);
         }
         
         .modal-close:hover {
-            background-color: var(--light-gray);
             color: var(--primary-black);
         }
         
         .modal h2 {
             margin-bottom: 25px;
-            color: var(--primary-black);
-            font-size: 2rem;
+            font-size: 1.8rem;
             text-align: center;
         }
         
         .form-group {
-            margin-bottom: 25px;
+            margin-bottom: 20px;
         }
         
         .form-group label {
             display: block;
-            margin-bottom: 10px;
-            font-weight: 600;
-            color: var(--primary-black);
+            margin-bottom: 8px;
+            font-weight: 500;
+            color: var(--text-gray);
+            font-size: 0.95rem;
         }
         
         .form-control {
             width: 100%;
-            padding: 15px 20px;
-            border: 2px solid var(--medium-gray);
-            border-radius: var(--border-radius);
-            font-family: 'Roboto', sans-serif;
+            padding: 12px 15px;
+            border: 1px solid var(--border-color);
+            border-radius: 6px;
+            font-family: 'Inter', sans-serif;
             font-size: 1rem;
-            transition: var(--transition-fast);
+            transition: var(--transition);
         }
         
         .form-control:focus {
             outline: none;
-            border-color: var(--primary-yellow);
-            box-shadow: 0 0 0 3px rgba(255, 215, 0, 0.2);
+            border-color: var(--primary-black);
         }
         
         .service-select {
-            display: flex;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
             gap: 10px;
             margin-top: 10px;
         }
         
         .service-select-btn {
-            flex: 1;
-            text-align: center;
-            padding: 15px;
-            border: 2px solid var(--medium-gray);
-            border-radius: var(--border-radius);
+            padding: 12px;
+            border: 1px solid var(--border-color);
+            border-radius: 6px;
             cursor: pointer;
-            transition: var(--transition-fast);
+            transition: var(--transition);
             background: var(--white);
-            font-weight: 600;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            gap: 8px;
+            text-align: center;
+            font-weight: 500;
         }
         
         .service-select-btn.selected {
@@ -1111,59 +757,53 @@
         }
         
         .form-error {
-            color: #ff4444;
-            font-size: 0.9rem;
+            color: #d32f2f;
+            font-size: 0.85rem;
             margin-top: 5px;
             display: none;
         }
         
         .modal-submit {
-            background: var(--gradient-yellow);
-            color: var(--primary-black);
+            background-color: var(--primary-black);
+            color: var(--white);
             border: none;
             width: 100%;
-            padding: 18px;
-            border-radius: var(--border-radius);
-            font-weight: 700;
-            font-size: 1.1rem;
+            padding: 14px;
+            border-radius: 6px;
+            font-weight: 600;
+            font-size: 1rem;
             cursor: pointer;
-            transition: var(--transition-fast);
+            transition: var(--transition);
             margin-top: 10px;
-            position: relative;
-            overflow: hidden;
         }
         
         .modal-submit:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 10px 30px rgba(255, 215, 0, 0.4);
+            background-color: var(--primary-yellow);
+            color: var(--primary-black);
         }
         
         /* Адаптивность */
-        @media (max-width: 1100px) {
-            .hero-title {
-                font-size: 3rem;
-            }
-            
-            .hero-image {
-                display: none;
+        @media (max-width: 992px) {
+            .hero-container {
+                grid-template-columns: 1fr;
+                gap: 40px;
             }
             
             .hero-content {
-                max-width: 100%;
-            }
-        }
-        
-        @media (max-width: 992px) {
-            .hero-title {
-                font-size: 2.5rem;
+                text-align: center;
             }
             
-            .section-title h2 {
-                font-size: 2.3rem;
+            .hero-content p {
+                margin: 0 auto 40px;
             }
             
-            .section-title .title-bg {
-                font-size: 3.5rem;
+            .hero-buttons {
+                justify-content: center;
+            }
+            
+            .contacts-container {
+                grid-template-columns: 1fr;
+                gap: 30px;
             }
             
             nav ul {
@@ -1173,17 +813,41 @@
             .mobile-menu-btn {
                 display: block;
             }
+        }
+        
+        @media (max-width: 768px) {
+            section {
+                padding: 60px 0;
+            }
+            
+            .hero {
+                padding: 120px 0 80px;
+            }
+            
+            .hero-content h1 {
+                font-size: 2.2rem;
+            }
+            
+            .section-title h2 {
+                font-size: 1.8rem;
+            }
+            
+            .service-card, .promo-card, .contact-info {
+                padding: 30px 20px;
+            }
+            
+            .hero-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .hero-btn {
+                width: 100%;
+                max-width: 300px;
+            }
             
             .header-buttons .phone-link span {
                 display: none;
-            }
-            
-            .header-buttons .phone-link {
-                padding: 10px;
-                border-radius: 50%;
-                width: 50px;
-                height: 50px;
-                justify-content: center;
             }
             
             .header-buttons .phone-link i {
@@ -1191,66 +855,22 @@
             }
         }
         
-        @media (max-width: 768px) {
-            .hero {
-                padding: 150px 0 80px;
-            }
-            
-            .hero-title {
-                font-size: 2rem;
-            }
-            
-            .hero-subtitle {
-                font-size: 1.1rem;
-            }
-            
-            .hero-btn {
-                padding: 15px 25px;
-                font-size: 1rem;
-            }
-            
-            .section-title h2 {
+        @media (max-width: 480px) {
+            .hero-content h1 {
                 font-size: 1.8rem;
             }
             
-            .section-title .title-bg {
-                font-size: 2.5rem;
+            .section-title h2 {
+                font-size: 1.5rem;
             }
             
-            section {
-                padding: 80px 0;
-            }
-            
-            .service-cards, .promo-cards {
+            .services-grid, .promo-cards {
                 grid-template-columns: 1fr;
             }
             
-            .footer-top {
-                flex-direction: column;
-                text-align: center;
-            }
-        }
-        
-        @media (max-width: 480px) {
-            .hero-title {
-                font-size: 1.8rem;
-            }
-            
-            .hero-buttons {
-                flex-direction: column;
-            }
-            
-            .hero-btn {
-                width: 100%;
-                justify-content: center;
-            }
-            
-            .section-title h2 {
-                font-size: 1.6rem;
-            }
-            
-            .service-card, .promo-card, .contact-info {
-                padding: 30px 20px;
+            .process-steps {
+                grid-template-columns: 1fr;
+                gap: 40px;
             }
             
             .modal {
@@ -1261,16 +881,13 @@
 </head>
 <body>
     <!-- Хедер -->
-    <header id="header">
+    <header>
         <div class="container header-container">
             <a href="#home" class="logo">
                 <div class="logo-icon">
                     <i class="fas fa-cogs"></i>
                 </div>
-                <div class="logo-text">
-                    <div class="logo-main">Ассоциация сервисных центров</div>
-                    <div class="logo-sub">г. <span class="logo-city">Нягань</span></div>
-                </div>
+                <div class="logo-text">АСЦ <span>Нягань</span></div>
             </a>
             
             <button class="mobile-menu-btn" id="mobileMenuBtn">
@@ -1279,9 +896,9 @@
             
             <nav>
                 <ul>
-                    <li><a href="#home">Главная</a></li>
+                    <li><a href="#home" class="active">Главная</a></li>
                     <li><a href="#services">Услуги</a></li>
-                    <li><a href="#benefits">Преимущества</a></li>
+                    <li><a href="#process">Как это работает</a></li>
                     <li><a href="#contacts">Контакты</a></li>
                     <li><a href="#promo">Акции</a></li>
                 </ul>
@@ -1292,10 +909,7 @@
                     <i class="fas fa-phone-alt"></i>
                     <span>+7 (922) 422-00-25</span>
                 </a>
-                <button class="order-btn" id="orderBtn">
-                    <i class="fas fa-bolt"></i>
-                    Заказать
-                </button>
+                <button class="order-btn" id="orderBtn">Заказать</button>
             </div>
         </div>
     </header>
@@ -1306,24 +920,24 @@
         <section class="hero" id="home">
             <div class="container hero-container">
                 <div class="hero-content">
-                    <h1 class="hero-title">Ассоциация сервисных центров — Нягани</h1>
-                    <p class="hero-subtitle">Забыли распечатать договор? Сломался телефон перед встречей? Больше не нужно бегать по разным точкам — мы решаем обе задачи быстро и с доставкой! 🚗💨</p>
+                    <h1>Ассоциация сервисных центров — Нягани</h1>
+                    <p>Забыли распечатать договор? Сломался телефон перед встречей? Больше не нужно бегать по разным точкам — мы решаем обе задачи быстро и с доставкой!</p>
                     <div class="hero-buttons">
-                        <button class="hero-btn print" data-service="print">
-                            <i class="fas fa-print"></i> Печать документов
-                        </button>
-                        <button class="hero-btn repair" data-service="repair">
-                            <i class="fas fa-tools"></i> Ремонт техники
-                        </button>
+                        <button class="hero-btn primary" data-service="print">Печать документов</button>
+                        <button class="hero-btn secondary" data-service="repair">Ремонт техники</button>
                     </div>
                 </div>
                 
-                <div class="hero-image">
-                    <div class="floating-icons">
-                        <div class="floating-icon">📄</div>
-                        <div class="floating-icon">🔧</div>
-                        <div class="floating-icon">🚗</div>
-                        <div class="floating-icon">💻</div>
+                <div class="hero-visual">
+                    <div class="visual-container">
+                        <div class="visual-box print">
+                            <div class="visual-icon">📄</div>
+                            <div class="visual-label">Печать</div>
+                        </div>
+                        <div class="visual-box repair">
+                            <div class="visual-icon">🔧</div>
+                            <div class="visual-label">Ремонт</div>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -1333,103 +947,98 @@
         <section class="services-section" id="services">
             <div class="container">
                 <div class="section-title">
-                    <div class="title-bg">УСЛУГИ</div>
-                    <h2>Наши <span style="color: var(--primary-yellow);">услуги</span></h2>
+                    <h2>Наши услуги</h2>
+                    <p>Быстрое решение ваших задач с доставкой по Нягани</p>
                 </div>
                 
-                <div class="service-cards">
-                    <!-- Карточка печати -->
-                    <div class="service-card animate">
+                <div class="services-grid">
+                    <!-- Печать документов -->
+                    <div class="service-card">
                         <div class="service-icon">📄</div>
                         <h3>Онлайн-печать документов</h3>
                         <ul class="service-features">
                             <li>Присылайте файл в Telegram или ВК</li>
-                            <li>Укажите: формат (А4/А3), цвет/ч/б, количество копий</li>
-                            <li>Выберите: самовывоз или доставка по Нягани</li>
+                            <li>Укажите формат, цвет и количество копий</li>
+                            <li>Выберите самовывоз или доставку</li>
                         </ul>
                         
                         <div class="service-price">
                             <h4>Доставка документов</h4>
                             <div class="price-item">
-                                <span>Бесплатно при заказе от 600 ₽</span>
+                                <span>Бесплатно от 600 ₽</span>
                             </div>
                             <div class="price-item">
-                                <span>200 ₽ при сумме до 600 ₽</span>
+                                <span>200 ₽ до 600 ₽</span>
                             </div>
                             <div class="price-item">
                                 <span>Срочная (20 мин) — +100 ₽</span>
                             </div>
                         </div>
                         
-                        <div class="highlight">
-                            ✨ Готово за 15 минут ✨
-                        </div>
+                        <div class="highlight">Готово за 15 минут • От 20 ₽ за лист</div>
                     </div>
                     
-                    <!-- Карточка ремонта -->
-                    <div class="service-card animate">
+                    <!-- Ремонт техники -->
+                    <div class="service-card">
                         <div class="service-icon">🔧</div>
                         <h3>Ремонт техники с выездом</h3>
                         <ul class="service-features">
-                            <li>Телефоны, планшеты, ноутбуки</li>
-                            <li>ПК, телевизоры и другая техника</li>
+                            <li>Телефоны, планшеты, ноутбуки, ПК</li>
                             <li>Диагностика за 15 минут</li>
-                            <li>Чистка + замена термопасты</li>
-                            <li>Настройка ПО и подключение устройств</li>
+                            <li>Чистка и замена термопасты</li>
+                            <li>Настройка ПО и подключение</li>
                         </ul>
                         
                         <div class="service-price">
                             <h4>Выезд мастера</h4>
                             <div class="price-item">
-                                <span>Бесплатно при заказе ремонта</span>
+                                <span>Бесплатно при ремонте</span>
                             </div>
                             <div class="price-item">
-                                <span>Забираем технику с актом приёма</span>
+                                <span>Забираем технику с актом</span>
                             </div>
                             <div class="price-item">
-                                <span>Ремонт за 1–3 дня (при наличии запчастей)</span>
+                                <span>Ремонт за 1–3 дня</span>
                             </div>
                         </div>
                         
-                        <div class="highlight">
-                            🚗 Доставляем обратно бесплатно!
-                        </div>
+                        <div class="highlight">Привозим обратно бесплатно</div>
                     </div>
                 </div>
             </div>
         </section>
 
-        <!-- Секция преимуществ -->
-        <section class="benefits-section" id="benefits">
+        <!-- Секция как это работает -->
+        <section class="process-section" id="process">
             <div class="container">
                 <div class="section-title">
-                    <div class="title-bg">ПРЕИМУЩЕСТВА</div>
-                    <h2>Почему <span style="color: var(--primary-yellow);">выбирают нас</span></h2>
+                    <h2>Как это работает</h2>
+                    <p>Простой процесс получения услуг</p>
                 </div>
                 
-                <div class="benefits-grid">
-                    <div class="benefit-item animate">
-                        <div class="benefit-icon">⚡</div>
-                        <h4>Скорость</h4>
-                        <p>Печать документов за 15 минут, диагностика техники за 15 минут</p>
+                <div class="process-steps">
+                    <div class="process-step">
+                        <div class="step-number">1</div>
+                        <h4>Свяжитесь с нами</h4>
+                        <p>Напишите в Telegram, ВК или позвоните</p>
                     </div>
                     
-                    <div class="benefit-item animate">
-                        <div class="benefit-icon">🚗</div>
-                        <h4>Доставка</h4>
-                        <p>Бесплатный выезд мастера и доставка документов от 600 ₽</p>
+                    <div class="process-step">
+                        <div class="step-number">2</div>
+                        <h4>Опишите задачу</h4>
+                        <p>Расскажите, что нужно сделать</p>
                     </div>
                     
-                    <div class="benefit-item animate">
-                        <div class="benefit-icon">💎</div>
-                        <h4>Качество</h4>
-                        <p>Профессиональный ремонт и печать на современном оборудовании</p>
+                    <div class="process-step">
+                        <div class="step-number">3</div>
+                        <h4>Получите услугу</h4>
+                        <p>Мы выполним работу быстро и качественно</p>
                     </div>
                     
-                    <div class="benefit-item animate">
-                        <div class="benefit-icon">🛡️</div>
-                        <h4>Гарантия</h4>
-                        <p>Гарантия на все виды работ и качество печати</p>
+                    <div class="process-step">
+                        <div class="step-number">4</div>
+                        <h4>Оплатите</h4>
+                        <p>Оплата после выполнения услуги</p>
                     </div>
                 </div>
             </div>
@@ -1439,12 +1048,12 @@
         <section class="contacts-section" id="contacts">
             <div class="container">
                 <div class="section-title">
-                    <div class="title-bg">КОНТАКТЫ</div>
-                    <h2>Где нас <span style="color: var(--primary-yellow);">найти</span></h2>
+                    <h2>Контакты</h2>
+                    <p>Свяжитесь с нами удобным способом</p>
                 </div>
                 
                 <div class="contacts-container">
-                    <div class="contact-info animate">
+                    <div class="contact-info">
                         <div class="contact-item">
                             <div class="contact-icon">
                                 <i class="fas fa-map-marker-alt"></i>
@@ -1471,7 +1080,7 @@
                             </div>
                             <div class="contact-text">
                                 <h4>Telegram</h4>
-                                <p><a href="https://t.me/asc_Nyagan" target="_blank">t.me/asc_Nyagan</a></p>
+                                <p><a href="https://t.me/asc_Nyagan" target="_blank">@asc_Nyagan</a></p>
                             </div>
                         </div>
                         
@@ -1481,7 +1090,7 @@
                             </div>
                             <div class="contact-text">
                                 <h4>ВКонтакте</h4>
-                                <p><a href="https://vk.ru/asc_nyagan" target="_blank">vk.ru/asc_nyagan</a></p>
+                                <p><a href="https://vk.ru/asc_nyagan" target="_blank">vk.com/asc_nyagan</a></p>
                             </div>
                         </div>
                         
@@ -1492,13 +1101,16 @@
                             <div class="contact-text">
                                 <h4>Режим работы</h4>
                                 <p>Пн–Вс: 10:00–18:00</p>
-                                <p>Чт: выходной</p>
+                                <p>Четверг: выходной</p>
                             </div>
                         </div>
                     </div>
                     
-                    <div class="contact-map animate">
-                        Карта расположения
+                    <div class="contact-map">
+                        <div class="map-placeholder">
+                            <i class="fas fa-map-marker-alt"></i>
+                            <p>г. Нягань<br>ул. Интернациональная, 82а<br>ТЦ «Сибиряк»</p>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -1508,29 +1120,25 @@
         <section class="promo-section" id="promo">
             <div class="container">
                 <div class="section-title">
-                    <div class="title-bg">АКЦИИ</div>
-                    <h2>Подарки <span style="color: var(--primary-yellow);">новым клиентам</span></h2>
+                    <h2>Акции</h2>
+                    <p>Специальные предложения для новых клиентов</p>
                 </div>
                 
                 <div class="promo-cards">
-                    <div class="promo-card animate">
-                        <div class="promo-content">
-                            <div class="promo-icon">🖨️</div>
-                            <h3>Печать документов</h3>
-                            <p>Скидка 20% на первый заказ печати документов</p>
-                            <div class="promo-code">НЯГАНЬ20</div>
-                            <p>Действует на все виды печати, включая цветную</p>
-                        </div>
+                    <div class="promo-card">
+                        <div class="promo-icon">🖨️</div>
+                        <h3>Печать документов</h3>
+                        <p>Скидка 20% на первый заказ</p>
+                        <div class="promo-code">НЯГАНЬ20</div>
+                        <p>Действует на все виды печати</p>
                     </div>
                     
-                    <div class="promo-card animate">
-                        <div class="promo-content">
-                            <div class="promo-icon">📲</div>
-                            <h3>Ремонт техники</h3>
-                            <p>Бесплатная диагностика + скидка 10% на ремонт</p>
-                            <div class="promo-code">НЯГАНЬМАСТЕР</div>
-                            <p>Действует на первый ремонт любой техники</p>
-                        </div>
+                    <div class="promo-card">
+                        <div class="promo-icon">📲</div>
+                        <h3>Ремонт техники</h3>
+                        <p>Бесплатная диагностика + скидка 10%</p>
+                        <div class="promo-code">НЯГАНЬМАСТЕР</div>
+                        <p>Действует на первый ремонт</p>
                     </div>
                 </div>
             </div>
@@ -1548,12 +1156,10 @@
                         <label>Выберите услугу:</label>
                         <div class="service-select">
                             <div class="service-select-btn" data-value="print">
-                                <i class="fas fa-print"></i>
-                                <span>Печать</span>
+                                Печать документов
                             </div>
                             <div class="service-select-btn" data-value="repair">
-                                <i class="fas fa-tools"></i>
-                                <span>Ремонт</span>
+                                Ремонт техники
                             </div>
                         </div>
                         <input type="hidden" id="serviceType" name="serviceType" value="print" required>
@@ -1572,13 +1178,11 @@
                     </div>
                     
                     <div class="form-group">
-                        <label for="message">Сообщение</label>
-                        <textarea id="message" name="message" class="form-control" rows="4" placeholder="Опишите вашу задачу..."></textarea>
+                        <label for="message">Сообщение (необязательно)</label>
+                        <textarea id="message" name="message" class="form-control" rows="3" placeholder="Опишите вашу задачу..."></textarea>
                     </div>
                     
-                    <button type="submit" class="modal-submit">
-                        <i class="fas fa-paper-plane"></i> Отправить заявку
-                    </button>
+                    <button type="submit" class="modal-submit">Отправить заявку</button>
                 </form>
             </div>
         </div>
@@ -1587,32 +1191,27 @@
     <!-- Футер -->
     <footer>
         <div class="container footer-container">
-            <div class="footer-top">
-                <a href="#home" class="logo footer-logo">
-                    <div class="logo-icon">
-                        <i class="fas fa-cogs"></i>
-                    </div>
-                    <div class="logo-text">
-                        <div class="logo-main">Ассоциация сервисных центров</div>
-                        <div class="logo-sub">г. <span class="logo-city">Нягань</span></div>
-                    </div>
-                </a>
-                
-                <div class="social-links">
-                    <a href="https://t.me/asc_Nyagan" class="social-link" target="_blank">
-                        <i class="fab fa-telegram"></i>
-                    </a>
-                    <a href="https://vk.ru/asc_nyagan" class="social-link" target="_blank">
-                        <i class="fab fa-vk"></i>
-                    </a>
-                    <a href="tel:+79224220025" class="social-link">
-                        <i class="fas fa-phone-alt"></i>
-                    </a>
+            <a href="#home" class="logo footer-logo">
+                <div class="logo-icon">
+                    <i class="fas fa-cogs"></i>
                 </div>
+                <div class="logo-text">АСЦ <span>Нягань</span></div>
+            </a>
+            
+            <div class="social-links">
+                <a href="https://t.me/asc_Nyagan" class="social-link" target="_blank">
+                    <i class="fab fa-telegram"></i>
+                </a>
+                <a href="https://vk.ru/asc_nyagan" class="social-link" target="_blank">
+                    <i class="fab fa-vk"></i>
+                </a>
+                <a href="tel:+79224220025" class="social-link">
+                    <i class="fas fa-phone-alt"></i>
+                </a>
             </div>
             
             <div class="footer-bottom">
-                <p>© 2026 Ассоциация сервисных центров — Нягань. Все права защищены.</p>
+                <p>© 2026 Ассоциация сервисных центров — Нягань</p>
             </div>
         </div>
     </footer>
@@ -1620,35 +1219,6 @@
     <script>
         // Инициализация при загрузке страницы
         document.addEventListener('DOMContentLoaded', function() {
-            // Анимация элементов при скролле
-            const animateElements = document.querySelectorAll('.animate');
-            
-            function checkScroll() {
-                animateElements.forEach(element => {
-                    const elementTop = element.getBoundingClientRect().top;
-                    const windowHeight = window.innerHeight;
-                    
-                    if (elementTop < windowHeight - 100) {
-                        element.classList.add('animated');
-                    }
-                });
-            }
-            
-            // Проверяем при загрузке и скролле
-            window.addEventListener('scroll', checkScroll);
-            checkScroll();
-            
-            // Эффект изменения хедера при скролле
-            const header = document.getElementById('header');
-            
-            window.addEventListener('scroll', function() {
-                if (window.scrollY > 100) {
-                    header.classList.add('scrolled');
-                } else {
-                    header.classList.remove('scrolled');
-                }
-            });
-            
             // Мобильное меню
             const mobileMenuBtn = document.getElementById('mobileMenuBtn');
             const nav = document.querySelector('nav');
@@ -1664,14 +1234,45 @@
                     nav.querySelector('ul').style.left = '0';
                     nav.querySelector('ul').style.width = '100%';
                     nav.querySelector('ul').style.flexDirection = 'column';
-                    nav.querySelector('ul').style.backgroundColor = 'rgba(255, 255, 255, 0.98)';
-                    nav.querySelector('ul').style.backdropFilter = 'blur(10px)';
-                    nav.querySelector('ul').style.padding = '30px 20px';
-                    nav.querySelector('ul').style.boxShadow = '0 10px 40px rgba(0, 0, 0, 0.15)';
-                    nav.querySelector('ul').style.gap = '20px';
-                    nav.querySelector('ul').style.zIndex = '1000';
+                    nav.querySelector('ul').style.backgroundColor = 'var(--white)';
+                    nav.querySelector('ul').style.padding = '20px';
+                    nav.querySelector('ul').style.borderTop = '1px solid var(--border-color)';
+                    nav.querySelector('ul').style.boxShadow = '0 10px 30px var(--shadow)';
+                    nav.querySelector('ul').style.gap = '15px';
+                    nav.querySelector('ul').style.zIndex = '100';
+                    
+                    // Скрытие кнопок хедера в мобильном меню
+                    document.querySelector('.header-buttons').style.display = 'none';
+                } else {
+                    document.querySelector('.header-buttons').style.display = 'flex';
                 }
             });
+            
+            // Активное меню при скролле
+            const sections = document.querySelectorAll('section');
+            const navLinks = document.querySelectorAll('nav a');
+            
+            function updateActiveNav() {
+                let current = '';
+                
+                sections.forEach(section => {
+                    const sectionTop = section.offsetTop - 100;
+                    const sectionHeight = section.clientHeight;
+                    
+                    if (scrollY >= sectionTop && scrollY < sectionTop + sectionHeight) {
+                        current = section.getAttribute('id');
+                    }
+                });
+                
+                navLinks.forEach(link => {
+                    link.classList.remove('active');
+                    if (link.getAttribute('href') === `#${current}`) {
+                        link.classList.add('active');
+                    }
+                });
+            }
+            
+            window.addEventListener('scroll', updateActiveNav);
             
             // Модальное окно заказа
             const orderBtn = document.getElementById('orderBtn');
@@ -1681,9 +1282,20 @@
             const serviceSelectBtns = document.querySelectorAll('.service-select-btn');
             const serviceTypeInput = document.getElementById('serviceType');
             
+            // Установка активной услуги
+            function setActiveService(service) {
+                serviceSelectBtns.forEach(btn => {
+                    btn.classList.remove('selected');
+                    if (btn.getAttribute('data-value') === service) {
+                        btn.classList.add('selected');
+                    }
+                });
+                serviceTypeInput.value = service;
+            }
+            
             // Открытие модального окна
             function openModal(service = 'print') {
-                setServiceType(service);
+                setActiveService(service);
                 modalOverlay.classList.add('active');
                 document.body.style.overflow = 'hidden';
             }
@@ -1694,18 +1306,7 @@
                 document.body.style.overflow = 'auto';
             }
             
-            // Установка типа услуги
-            function setServiceType(service) {
-                serviceSelectBtns.forEach(btn => {
-                    btn.classList.remove('selected');
-                    if (btn.getAttribute('data-value') === service) {
-                        btn.classList.add('selected');
-                    }
-                });
-                serviceTypeInput.value = service;
-            }
-            
-            // Открытие по кнопкам
+            // Обработчики открытия модального окна
             orderBtn.addEventListener('click', () => openModal());
             
             heroButtons.forEach(button => {
@@ -1719,7 +1320,7 @@
             serviceSelectBtns.forEach(btn => {
                 btn.addEventListener('click', function() {
                     const service = this.getAttribute('data-value');
-                    setServiceType(service);
+                    setActiveService(service);
                 });
             });
             
@@ -1759,22 +1360,22 @@
                 // Проверка имени
                 if (!nameInput.value.trim()) {
                     nameError.style.display = 'block';
-                    nameInput.style.borderColor = '#ff4444';
+                    nameInput.style.borderColor = '#d32f2f';
                     isValid = false;
                 } else {
                     nameError.style.display = 'none';
-                    nameInput.style.borderColor = '#E9ECEF';
+                    nameInput.style.borderColor = 'var(--border-color)';
                 }
                 
                 // Проверка телефона
                 const phoneRegex = /^\+7 \(\d{3}\) \d{3}-\d{2}-\d{2}$/;
                 if (!phoneRegex.test(phoneInput.value)) {
                     phoneError.style.display = 'block';
-                    phoneInput.style.borderColor = '#ff4444';
+                    phoneInput.style.borderColor = '#d32f2f';
                     isValid = false;
                 } else {
                     phoneError.style.display = 'none';
-                    phoneInput.style.borderColor = '#E9ECEF';
+                    phoneInput.style.borderColor = 'var(--border-color)';
                 }
                 
                 if (isValid) {
@@ -1782,7 +1383,7 @@
                     const submitBtn = orderForm.querySelector('.modal-submit');
                     const originalText = submitBtn.innerHTML;
                     
-                    submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Отправка...';
+                    submitBtn.innerHTML = 'Отправка...';
                     submitBtn.disabled = true;
                     
                     setTimeout(() => {
@@ -1790,31 +1391,37 @@
                         
                         // Сбрасываем форму
                         orderForm.reset();
-                        setServiceType('print');
+                        setActiveService('print');
                         
                         submitBtn.innerHTML = originalText;
                         submitBtn.disabled = false;
                         
                         closeModal();
-                    }, 1500);
+                    }, 1000);
                 }
             });
             
-            // Анимация плавающих иконок в геро-секции
-            const floatingIcons = document.querySelectorAll('.floating-icon');
-            floatingIcons.forEach((icon, index) => {
-                icon.style.animationDelay = `${index * 1.5}s`;
-            });
-            
-            // Добавляем интерактивность к карточкам услуг
-            const serviceCards = document.querySelectorAll('.service-card');
-            serviceCards.forEach(card => {
-                card.addEventListener('mouseenter', function() {
-                    this.style.transform = 'translateY(-20px)';
-                });
-                
-                card.addEventListener('mouseleave', function() {
-                    this.style.transform = 'translateY(0)';
+            // Плавная прокрутка для навигации
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    
+                    const targetId = this.getAttribute('href');
+                    if (targetId === '#') return;
+                    
+                    const targetElement = document.querySelector(targetId);
+                    if (targetElement) {
+                        // Закрываем мобильное меню, если оно открыто
+                        if (nav.querySelector('ul').style.display === 'flex') {
+                            nav.querySelector('ul').style.display = 'none';
+                            document.querySelector('.header-buttons').style.display = 'flex';
+                        }
+                        
+                        window.scrollTo({
+                            top: targetElement.offsetTop - 80,
+                            behavior: 'smooth'
+                        });
+                    }
                 });
             });
         });
