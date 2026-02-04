@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ассоциация сервисных центров — Нягань | Ремонт техники и печать документов</title>
+    <title>Ассоциация сервисных центров — Нягань | Профессиональный ремонт техники и печать документов</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -11,30 +11,26 @@
     <style>
         /* Основные стили и переменные */
         :root {
-            --primary-blue: #2A6EBB;
-            --dark-blue: #1E4A8F;
-            --light-blue: #E8F1FF;
             --primary-yellow: #FFC107;
             --dark-yellow: #FFA000;
             --light-yellow: #FFF8E1;
-            --primary-black: #121826;
-            --dark-gray: #2D3748;
-            --medium-gray: #4A5568;
-            --light-gray: #F7FAFC;
-            --text-dark: #1A202C;
-            --text-medium: #4A5568;
-            --text-light: #718096;
+            --primary-black: #212121;
+            --dark-gray: #424242;
+            --medium-gray: #757575;
+            --light-gray: #F5F5F5;
+            --text-dark: #212121;
+            --text-medium: #424242;
+            --text-light: #757575;
             --white: #FFFFFF;
             --background: #FFFFFF;
-            --background-alt: #F8F9FA;
-            --shadow: 0 4px 20px rgba(0, 0, 0, 0.06);
-            --shadow-hover: 0 10px 30px rgba(0, 0, 0, 0.12);
-            --shadow-yellow: 0 6px 20px rgba(255, 193, 7, 0.15);
-            --shadow-blue: 0 6px 20px rgba(42, 110, 187, 0.15);
+            --background-alt: #FAFAFA;
+            --shadow: 0 4px 12px rgba(33, 33, 33, 0.08);
+            --shadow-hover: 0 8px 24px rgba(33, 33, 33, 0.12);
+            --shadow-yellow: 0 4px 12px rgba(255, 193, 7, 0.15);
             --transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
-            --border-radius: 12px;
-            --border-radius-lg: 16px;
-            --border: 1px solid #E2E8F0;
+            --border-radius: 8px;
+            --border-radius-lg: 12px;
+            --border: 1px solid #EEEEEE;
         }
         
         * {
@@ -69,13 +65,13 @@
         }
         
         .section {
-            padding: 100px 0;
+            padding: 80px 0;
         }
         
         .section-title {
             text-align: center;
-            font-size: 42px;
-            margin-bottom: 20px;
+            font-size: 36px;
+            margin-bottom: 50px;
             color: var(--primary-black);
             position: relative;
         }
@@ -84,27 +80,27 @@
             content: '';
             position: absolute;
             width: 100px;
-            height: 5px;
-            background: linear-gradient(90deg, var(--primary-blue), var(--primary-yellow));
+            height: 4px;
+            background: linear-gradient(90deg, var(--primary-yellow), var(--dark-yellow));
             bottom: -15px;
             left: 50%;
             transform: translateX(-50%);
-            border-radius: 3px;
+            border-radius: 2px;
         }
         
         .section-subtitle {
             text-align: center;
             font-size: 18px;
             max-width: 700px;
-            margin: 40px auto 60px;
+            margin: 0 auto 60px;
             color: var(--text-medium);
         }
         
         .btn {
             display: inline-block;
-            padding: 16px 36px;
-            background: linear-gradient(135deg, var(--primary-blue), var(--dark-blue));
-            color: var(--white);
+            padding: 14px 32px;
+            background-color: var(--primary-yellow);
+            color: var(--primary-black);
             border: none;
             border-radius: var(--border-radius);
             font-family: 'Montserrat', sans-serif;
@@ -115,66 +111,53 @@
             transition: var(--transition);
             text-align: center;
             box-shadow: var(--shadow);
-            position: relative;
-            overflow: hidden;
-            z-index: 1;
-        }
-        
-        .btn::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: -100%;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(135deg, var(--primary-yellow), var(--dark-yellow));
-            transition: left 0.4s ease;
-            z-index: -1;
-        }
-        
-        .btn:hover::before {
-            left: 0;
         }
         
         .btn:hover {
-            transform: translateY(-5px);
-            box-shadow: var(--shadow-hover);
-        }
-        
-        .btn-yellow {
-            background: linear-gradient(135deg, var(--primary-yellow), var(--dark-yellow));
+            background-color: var(--dark-yellow);
+            transform: translateY(-3px);
+            box-shadow: var(--shadow-yellow);
         }
         
         .btn-outline {
             background-color: transparent;
-            color: var(--primary-blue);
-            border: 2px solid var(--primary-blue);
+            color: var(--primary-black);
+            border: 2px solid var(--primary-black);
         }
         
         .btn-outline:hover {
-            background-color: var(--primary-blue);
+            background-color: var(--primary-black);
             color: var(--white);
-            border-color: var(--primary-blue);
+            border-color: var(--primary-black);
         }
         
-        /* Анимированная шапка */
+        .btn-black {
+            background-color: var(--primary-black);
+            color: var(--white);
+        }
+        
+        .btn-black:hover {
+            background-color: var(--dark-gray);
+            color: var(--white);
+        }
+        
+        /* Шапка */
         header {
-            background-color: rgba(255, 255, 255, 0.95);
-            backdrop-filter: blur(10px);
+            background-color: var(--white);
             position: fixed;
             top: 0;
             left: 0;
             width: 100%;
             z-index: 1000;
-            padding: 20px 0;
+            border-bottom: var(--border);
+            padding: 15px 0;
             transition: var(--transition);
-            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
-            border-bottom: 1px solid rgba(226, 232, 240, 0.6);
+            box-shadow: 0 2px 10px rgba(33, 33, 33, 0.05);
         }
         
         header.scrolled {
-            padding: 15px 0;
-            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.08);
+            padding: 10px 0;
+            box-shadow: 0 5px 20px rgba(33, 33, 33, 0.1);
         }
         
         .header-container {
@@ -188,11 +171,6 @@
             align-items: center;
             gap: 15px;
             text-decoration: none;
-            transition: var(--transition);
-        }
-        
-        .logo:hover {
-            transform: translateY(-2px);
         }
         
         .logo-img {
@@ -211,10 +189,6 @@
             font-weight: 800;
             color: var(--primary-black);
             line-height: 1.2;
-            background: linear-gradient(90deg, var(--primary-blue), var(--primary-yellow));
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
         }
         
         .logo-sub {
@@ -240,25 +214,24 @@
             text-decoration: none;
             font-weight: 600;
             font-size: 16px;
-            padding: 8px 0;
+            padding: 5px 0;
             position: relative;
             transition: var(--transition);
         }
         
         .nav-link:hover, .nav-link.active {
-            color: var(--primary-blue);
+            color: var(--primary-yellow);
         }
         
         .nav-link::after {
             content: '';
             position: absolute;
             width: 0;
-            height: 3px;
-            background: linear-gradient(90deg, var(--primary-blue), var(--primary-yellow));
-            bottom: 0;
+            height: 2px;
+            background-color: var(--primary-yellow);
+            bottom: -2px;
             left: 0;
             transition: var(--transition);
-            border-radius: 3px;
         }
         
         .nav-link:hover::after, .nav-link.active::after {
@@ -280,17 +253,14 @@
             align-items: center;
             gap: 8px;
             transition: var(--transition);
-            padding: 12px 18px;
-            background-color: var(--light-blue);
+            padding: 10px 15px;
+            background-color: var(--light-yellow);
             border-radius: var(--border-radius);
-            border: 1px solid rgba(42, 110, 187, 0.1);
         }
         
         .phone-link:hover {
-            background-color: var(--primary-blue);
-            color: var(--white);
-            transform: translateY(-2px);
-            box-shadow: var(--shadow-blue);
+            background-color: var(--primary-yellow);
+            color: var(--primary-black);
         }
         
         .mobile-menu-btn {
@@ -300,79 +270,37 @@
             color: var(--primary-black);
             font-size: 24px;
             cursor: pointer;
-            transition: var(--transition);
-            padding: 8px;
-            border-radius: 8px;
-            background-color: var(--light-blue);
         }
         
-        .mobile-menu-btn:hover {
-            background-color: var(--primary-blue);
-            color: var(--white);
-        }
-        
-        /* Анимированный главный баннер с реальным фото */
+        /* Главный баннер */
         .hero {
-            padding: 180px 0 120px;
-            background: linear-gradient(rgba(18, 24, 38, 0.85), rgba(18, 24, 38, 0.9)), url('https://images.unsplash.com/photo-1563013544-824ae1b704d3?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1920&q=80');
-            background-size: cover;
-            background-position: center;
-            background-attachment: fixed;
-            color: var(--white);
+            padding: 160px 0 100px;
+            background: linear-gradient(rgba(255, 255, 255, 0.95), rgba(255, 255, 255, 0.95)), var(--background-alt);
             position: relative;
             overflow: hidden;
-        }
-        
-        .hero::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: radial-gradient(circle at 30% 50%, rgba(42, 110, 187, 0.2), transparent 60%),
-                        radial-gradient(circle at 70% 20%, rgba(255, 193, 7, 0.15), transparent 50%);
-            z-index: 1;
+            border-bottom: var(--border);
         }
         
         .hero-content {
-            max-width: 800px;
+            max-width: 700px;
             position: relative;
-            z-index: 2;
-            animation: fadeInUp 1s ease-out;
-        }
-        
-        @keyframes fadeInUp {
-            from {
-                opacity: 0;
-                transform: translateY(40px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
+            z-index: 1;
         }
         
         .hero-title {
-            font-size: 56px;
-            margin-bottom: 25px;
-            color: var(--white);
-            line-height: 1.2;
-            text-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+            font-size: 48px;
+            margin-bottom: 20px;
+            color: var(--primary-black);
         }
         
         .hero-title span {
-            background: linear-gradient(90deg, var(--primary-yellow), #FFD54F);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
+            color: var(--primary-yellow);
         }
         
         .hero-subtitle {
             font-size: 20px;
-            margin-bottom: 40px;
-            color: rgba(255, 255, 255, 0.9);
-            max-width: 650px;
+            margin-bottom: 30px;
+            color: var(--text-medium);
         }
         
         .hero-actions {
@@ -382,136 +310,41 @@
             flex-wrap: wrap;
         }
         
-        /* Плавающие элементы в баннере */
-        .floating-elements {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            pointer-events: none;
-            z-index: 1;
-        }
-        
-        .floating-element {
-            position: absolute;
-            background: rgba(255, 255, 255, 0.1);
-            border-radius: 50%;
-            animation: float 6s ease-in-out infinite;
-        }
-        
-        .floating-element:nth-child(1) {
-            width: 60px;
-            height: 60px;
-            top: 20%;
-            left: 10%;
-            background: rgba(42, 110, 187, 0.2);
-            animation-delay: 0s;
-        }
-        
-        .floating-element:nth-child(2) {
-            width: 40px;
-            height: 40px;
-            top: 60%;
-            right: 15%;
-            background: rgba(255, 193, 7, 0.2);
-            animation-delay: 1s;
-        }
-        
-        .floating-element:nth-child(3) {
-            width: 80px;
-            height: 80px;
-            bottom: 20%;
-            left: 20%;
-            background: rgba(255, 255, 255, 0.1);
-            animation-delay: 2s;
-        }
-        
-        @keyframes float {
-            0%, 100% {
-                transform: translateY(0) rotate(0deg);
-            }
-            50% {
-                transform: translateY(-20px) rotate(10deg);
-            }
-        }
-        
-        /* Счетчики с анимацией */
+        /* Счетчики */
         .counters {
-            background-color: var(--light-gray);
-            padding: 80px 0;
-            position: relative;
-            overflow: hidden;
-        }
-        
-        .counters::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 5px;
-            background: linear-gradient(90deg, var(--primary-blue), var(--primary-yellow));
+            background-color: var(--primary-black);
+            padding: 60px 0;
         }
         
         .counters-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
             gap: 30px;
         }
         
         .counter-item {
             text-align: center;
-            padding: 30px;
-            background-color: var(--white);
-            border-radius: var(--border-radius-lg);
-            box-shadow: var(--shadow);
-            border: var(--border);
-            transition: var(--transition);
-            position: relative;
-            overflow: hidden;
-        }
-        
-        .counter-item::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 5px;
-            background: linear-gradient(90deg, var(--primary-blue), var(--primary-yellow));
-            transform: scaleX(0);
-            transform-origin: left;
-            transition: transform 0.6s ease;
-        }
-        
-        .counter-item:hover::before {
-            transform: scaleX(1);
-        }
-        
-        .counter-item:hover {
-            transform: translateY(-10px);
-            box-shadow: var(--shadow-hover);
+            padding: 20px;
+            color: var(--white);
         }
         
         .counter-value {
             font-size: 48px;
             font-weight: 800;
-            color: var(--primary-blue);
+            color: var(--primary-yellow);
             margin-bottom: 10px;
             font-family: 'Montserrat', sans-serif;
         }
         
         .counter-label {
             font-size: 18px;
-            color: var(--text-medium);
+            color: var(--white);
             font-weight: 600;
         }
         
-        /* Услуги с иконками */
+        /* Услуги с изображениями */
         .services {
             background-color: var(--background);
-            position: relative;
         }
         
         .services-grid {
@@ -523,71 +356,39 @@
         .service-card {
             background-color: var(--white);
             border-radius: var(--border-radius-lg);
-            padding: 40px 30px;
+            padding: 0 0 40px 0;
             text-align: center;
             transition: var(--transition);
             border: var(--border);
             position: relative;
             overflow: hidden;
             box-shadow: var(--shadow);
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-        }
-        
-        .service-card::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 5px;
-            background: linear-gradient(90deg, var(--primary-blue), var(--primary-yellow));
-            transform: scaleX(0);
-            transform-origin: left;
-            transition: transform 0.6s ease;
-        }
-        
-        .service-card:hover::before {
-            transform: scaleX(1);
         }
         
         .service-card:hover {
             transform: translateY(-10px);
-            border-color: transparent;
-            box-shadow: var(--shadow-hover);
+            border-color: var(--primary-yellow);
+            box-shadow: var(--shadow-yellow);
         }
         
-        .service-icon {
-            width: 80px;
-            height: 80px;
-            background: linear-gradient(135deg, var(--primary-blue), var(--dark-blue));
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
+        .service-image {
+            height: 200px;
+            width: 100%;
+            object-fit: cover;
             margin-bottom: 25px;
-            color: var(--white);
-            font-size: 32px;
-            transition: var(--transition);
-            box-shadow: 0 8px 20px rgba(42, 110, 187, 0.2);
-        }
-        
-        .service-card:hover .service-icon {
-            background: linear-gradient(135deg, var(--primary-yellow), var(--dark-yellow));
-            transform: rotate(10deg) scale(1.1);
         }
         
         .service-card h3 {
             font-size: 22px;
             margin-bottom: 15px;
             color: var(--primary-black);
+            padding: 0 30px;
         }
         
         .service-card p {
             color: var(--text-medium);
             margin-bottom: 25px;
-            line-height: 1.7;
+            padding: 0 30px;
         }
         
         .service-price {
@@ -599,189 +400,76 @@
             align-items: center;
             justify-content: center;
             gap: 5px;
+            padding: 0 30px;
         }
         
         .service-price span {
-            color: var(--primary-blue);
-            font-size: 28px;
-        }
-        
-        /* Отзывы */
-        .reviews {
-            background-color: var(--light-gray);
-            border-top: var(--border);
-            border-bottom: var(--border);
-            position: relative;
-        }
-        
-        .reviews-slider {
-            max-width: 900px;
-            margin: 0 auto;
-            position: relative;
-            overflow: hidden;
-        }
-        
-        .reviews-container {
-            display: flex;
-            transition: transform 0.5s ease;
-        }
-        
-        .review-card {
-            min-width: 100%;
-            background-color: var(--white);
-            border-radius: var(--border-radius-lg);
-            padding: 40px;
-            box-shadow: var(--shadow);
-            border: var(--border);
-            transition: var(--transition);
-            display: flex;
-            flex-direction: column;
-        }
-        
-        .review-header {
-            display: flex;
-            align-items: center;
-            margin-bottom: 25px;
-        }
-        
-        .review-avatar {
-            width: 70px;
-            height: 70px;
-            border-radius: 50%;
-            background: linear-gradient(135deg, var(--primary-blue), var(--dark-blue));
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: var(--white);
-            font-size: 28px;
-            font-weight: 700;
-            margin-right: 20px;
-        }
-        
-        .review-info h4 {
-            font-size: 20px;
-            margin-bottom: 5px;
-            color: var(--primary-black);
-        }
-        
-        .review-date {
-            color: var(--text-light);
-            font-size: 14px;
-        }
-        
-        .review-rating {
-            display: flex;
-            margin-bottom: 20px;
-        }
-        
-        .review-rating i {
             color: var(--primary-yellow);
-            margin-right: 3px;
-            font-size: 18px;
+            font-size: 28px;
         }
         
-        .review-text {
-            color: var(--text-medium);
-            line-height: 1.7;
-            font-size: 16px;
-            font-style: italic;
-            position: relative;
-            padding-left: 20px;
-            flex-grow: 1;
+        .service-action {
+            padding: 0 30px;
         }
         
-        .review-text::before {
-            content: '"';
-            position: absolute;
-            top: -10px;
-            left: 0;
-            font-size: 60px;
-            color: rgba(42, 110, 187, 0.1);
-            font-family: serif;
-            line-height: 1;
+        /* Галерея */
+        .gallery {
+            background-color: var(--background);
+            border-top: var(--border);
         }
         
-        .review-controls {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            margin-top: 40px;
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
             gap: 20px;
         }
         
-        .review-prev, .review-next {
-            background-color: var(--white);
-            border: none;
-            width: 50px;
-            height: 50px;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: var(--primary-blue);
-            font-size: 20px;
-            cursor: pointer;
-            transition: var(--transition);
-            box-shadow: var(--shadow);
-            border: var(--border);
-        }
-        
-        .review-prev:hover, .review-next:hover {
-            background-color: var(--primary-blue);
-            color: var(--white);
-            transform: translateY(-3px);
-            box-shadow: var(--shadow-blue);
-        }
-        
-        .review-dots {
-            display: flex;
-            gap: 10px;
-        }
-        
-        .review-dot {
-            width: 12px;
-            height: 12px;
-            border-radius: 50%;
-            background-color: #E2E8F0;
-            border: none;
-            cursor: pointer;
-            transition: var(--transition);
-        }
-        
-        .review-dot.active {
-            background-color: var(--primary-blue);
-            transform: scale(1.2);
-        }
-        
-        /* Форма заявки с анимацией */
-        .order-form-section {
-            background-color: var(--background);
-            position: relative;
+        .gallery-item {
+            border-radius: var(--border-radius);
             overflow: hidden;
+            height: 220px;
+            position: relative;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
         }
         
-        .order-form-section::before {
-            content: '';
-            position: absolute;
-            top: -50%;
-            right: -20%;
-            width: 400px;
-            height: 400px;
-            background: radial-gradient(circle, rgba(42, 110, 187, 0.05), transparent 70%);
-            border-radius: 50%;
-            z-index: 0;
+        .gallery-item:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-hover);
         }
         
-        .order-form-section::after {
-            content: '';
+        .gallery-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+        
+        .gallery-item:hover img {
+            transform: scale(1.05);
+        }
+        
+        .gallery-overlay {
             position: absolute;
-            bottom: -30%;
-            left: -10%;
-            width: 300px;
-            height: 300px;
-            background: radial-gradient(circle, rgba(255, 193, 7, 0.05), transparent 70%);
-            border-radius: 50%;
-            z-index: 0;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            padding: 15px;
+            background: linear-gradient(transparent, rgba(33, 33, 33, 0.8));
+            color: var(--white);
+            opacity: 0;
+            transition: var(--transition);
+        }
+        
+        .gallery-item:hover .gallery-overlay {
+            opacity: 1;
+        }
+        
+        /* Форма заявки */
+        .order-form-section {
+            background-color: var(--background-alt);
+            border-top: var(--border);
+            border-bottom: var(--border);
         }
         
         .form-container {
@@ -792,33 +480,13 @@
             padding: 50px;
             box-shadow: var(--shadow);
             border: var(--border);
-            position: relative;
-            z-index: 1;
-            transition: var(--transition);
-        }
-        
-        .form-container:hover {
-            box-shadow: var(--shadow-hover);
         }
         
         .form-title {
             text-align: center;
-            font-size: 32px;
+            font-size: 28px;
             margin-bottom: 30px;
             color: var(--primary-black);
-            position: relative;
-        }
-        
-        .form-title::after {
-            content: '';
-            position: absolute;
-            width: 80px;
-            height: 4px;
-            background: linear-gradient(90deg, var(--primary-blue), var(--primary-yellow));
-            bottom: -10px;
-            left: 50%;
-            transform: translateX(-50%);
-            border-radius: 2px;
         }
         
         .form-group {
@@ -834,9 +502,9 @@
         
         .form-control {
             width: 100%;
-            padding: 16px 20px;
-            background-color: var(--light-gray);
-            border: 1px solid #E2E8F0;
+            padding: 14px 18px;
+            background-color: var(--background);
+            border: 1px solid #E0E0E0;
             border-radius: var(--border-radius);
             color: var(--text-dark);
             font-size: 16px;
@@ -845,9 +513,9 @@
         
         .form-control:focus {
             outline: none;
-            border-color: var(--primary-blue);
+            border-color: var(--primary-yellow);
             background-color: var(--white);
-            box-shadow: 0 0 0 3px rgba(42, 110, 187, 0.1);
+            box-shadow: 0 0 0 3px rgba(255, 193, 7, 0.1);
         }
         
         .form-row {
@@ -858,8 +526,7 @@
         
         /* Контакты */
         .contacts {
-            background-color: var(--light-gray);
-            position: relative;
+            background-color: var(--background);
         }
         
         .contacts-grid {
@@ -875,31 +542,11 @@
             border: var(--border);
             transition: var(--transition);
             box-shadow: var(--shadow);
-            position: relative;
-            overflow: hidden;
-        }
-        
-        .contact-card::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 5px;
-            height: 100%;
-            background: linear-gradient(to bottom, var(--primary-blue), var(--primary-yellow));
-            transform: scaleY(0);
-            transform-origin: top;
-            transition: transform 0.6s ease;
-        }
-        
-        .contact-card:hover::before {
-            transform: scaleY(1);
         }
         
         .contact-card:hover {
-            border-color: transparent;
-            box-shadow: var(--shadow-hover);
-            transform: translateY(-5px);
+            border-color: var(--primary-yellow);
+            box-shadow: var(--shadow-yellow);
         }
         
         .contact-title {
@@ -912,11 +559,8 @@
         }
         
         .contact-title i {
+            color: var(--primary-yellow);
             font-size: 28px;
-            background: linear-gradient(90deg, var(--primary-blue), var(--primary-yellow));
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
         }
         
         .contact-item {
@@ -934,10 +578,7 @@
         }
         
         .contact-item i {
-            background: linear-gradient(90deg, var(--primary-blue), var(--primary-yellow));
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
+            color: var(--primary-yellow);
             font-size: 18px;
             margin-right: 15px;
             margin-top: 3px;
@@ -957,26 +598,14 @@
         }
         
         .contact-text a:hover {
-            color: var(--primary-blue);
+            color: var(--primary-yellow);
         }
         
         /* Подвал с информацией о студии */
         footer {
             background-color: var(--primary-black);
-            padding: 80px 0 30px;
+            padding: 60px 0 30px;
             color: var(--white);
-            position: relative;
-            overflow: hidden;
-        }
-        
-        footer::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 5px;
-            background: linear-gradient(90deg, var(--primary-blue), var(--primary-yellow));
         }
         
         .footer-grid {
@@ -998,11 +627,10 @@
             content: '';
             position: absolute;
             width: 50px;
-            height: 3px;
+            height: 2px;
             background-color: var(--primary-yellow);
             bottom: 0;
             left: 0;
-            border-radius: 3px;
         }
         
         .footer-logo {
@@ -1018,11 +646,6 @@
             background-color: var(--white);
             padding: 10px;
             border-radius: var(--border-radius);
-            transition: var(--transition);
-        }
-        
-        .footer-logo-img:hover {
-            transform: rotate(5deg) scale(1.05);
         }
         
         .studio-credits {
@@ -1051,11 +674,6 @@
         
         .footer-links li {
             margin-bottom: 12px;
-            transition: var(--transition);
-        }
-        
-        .footer-links li:hover {
-            transform: translateX(5px);
         }
         
         .footer-links a {
@@ -1066,6 +684,7 @@
         
         .footer-links a:hover {
             color: var(--primary-yellow);
+            padding-left: 5px;
         }
         
         .social-links {
@@ -1078,8 +697,8 @@
             display: flex;
             align-items: center;
             justify-content: center;
-            width: 44px;
-            height: 44px;
+            width: 40px;
+            height: 40px;
             background-color: rgba(255, 255, 255, 0.1);
             color: var(--primary-yellow);
             border-radius: 50%;
@@ -1091,7 +710,7 @@
         .social-link:hover {
             background-color: var(--primary-yellow);
             color: var(--primary-black);
-            transform: translateY(-5px) rotate(10deg);
+            transform: translateY(-3px);
         }
         
         .copyright {
@@ -1102,66 +721,14 @@
             font-size: 14px;
         }
         
-        /* Анимации появления */
-        .fade-in {
-            opacity: 0;
-            transform: translateY(30px);
-            transition: opacity 0.8s ease, transform 0.8s ease;
-        }
-        
-        .fade-in.visible {
-            opacity: 1;
-            transform: translateY(0);
-        }
-        
-        /* Уведомление */
-        .notification {
-            position: fixed;
-            bottom: 30px;
-            right: 30px;
-            background-color: var(--white);
-            color: var(--text-dark);
-            padding: 20px 25px;
-            border-radius: var(--border-radius);
-            box-shadow: var(--shadow-hover);
-            border-left: 5px solid var(--primary-blue);
-            z-index: 1000;
-            transform: translateX(150%);
-            transition: transform 0.5s cubic-bezier(0.68, -0.55, 0.27, 1.55);
-            max-width: 350px;
-            border: var(--border);
-        }
-        
-        .notification.show {
-            transform: translateX(0);
-        }
-        
-        .notification-title {
-            color: var(--primary-black);
-            font-weight: 700;
-            margin-bottom: 5px;
-            display: flex;
-            align-items: center;
-            gap: 10px;
-        }
-        
-        .notification-title::before {
-            content: '';
-            width: 8px;
-            height: 8px;
-            background-color: var(--primary-yellow);
-            border-radius: 50%;
-            display: inline-block;
-        }
-        
         /* Адаптивность */
         @media (max-width: 992px) {
             .hero-title {
-                font-size: 48px;
+                font-size: 40px;
             }
             
             .section-title {
-                font-size: 36px;
+                font-size: 32px;
             }
             
             .form-container {
@@ -1181,11 +748,10 @@
                 top: 80px;
                 left: 0;
                 width: 100%;
-                background-color: rgba(255, 255, 255, 0.98);
-                backdrop-filter: blur(10px);
+                background-color: var(--white);
                 flex-direction: column;
                 padding: 30px;
-                box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+                box-shadow: 0 10px 20px rgba(33, 33, 33, 0.1);
                 border-top: var(--border);
                 z-index: 999;
             }
@@ -1203,12 +769,7 @@
             }
             
             .hero-title {
-                font-size: 38px;
-            }
-            
-            .hero {
-                background-attachment: scroll;
-                padding: 150px 0 80px;
+                font-size: 34px;
             }
             
             .hero-actions {
@@ -1216,7 +777,14 @@
             }
             
             .service-card {
-                padding: 30px 20px;
+                padding: 0 0 30px 0;
+            }
+            
+            .service-card h3,
+            .service-card p,
+            .service-price,
+            .service-action {
+                padding: 0 20px;
             }
             
             /* Адаптация логотипа для мобильных */
@@ -1236,33 +804,15 @@
             .logo-text .logo-sub {
                 font-size: 11px;
             }
-            
-            .section {
-                padding: 70px 0;
-            }
-            
-            .review-card {
-                padding: 30px 20px;
-            }
-            
-            .review-header {
-                flex-direction: column;
-                text-align: center;
-            }
-            
-            .review-avatar {
-                margin-right: 0;
-                margin-bottom: 15px;
-            }
         }
         
         @media (max-width: 576px) {
             .hero {
-                padding: 130px 0 60px;
+                padding: 140px 0 80px;
             }
             
-            .hero-title {
-                font-size: 32px;
+            .section {
+                padding: 60px 0;
             }
             
             .section-title {
@@ -1288,15 +838,51 @@
             .logo-mobile {
                 height: 35px;
             }
-            
-            .services-grid {
-                grid-template-columns: 1fr;
-            }
+        }
+        
+        /* Анимации появления */
+        .fade-in {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.6s ease, transform 0.6s ease;
+        }
+        
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        /* Уведомление */
+        .notification {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            background-color: var(--white);
+            color: var(--text-dark);
+            padding: 20px 25px;
+            border-radius: var(--border-radius);
+            box-shadow: var(--shadow);
+            border-left: 4px solid var(--primary-yellow);
+            z-index: 1000;
+            transform: translateX(150%);
+            transition: transform 0.4s ease;
+            max-width: 350px;
+            border: var(--border);
+        }
+        
+        .notification.show {
+            transform: translateX(0);
+        }
+        
+        .notification-title {
+            color: var(--primary-black);
+            font-weight: 700;
+            margin-bottom: 5px;
         }
     </style>
 </head>
 <body>
-    <!-- Анимированная шапка -->
+    <!-- Шапка -->
     <header id="header">
         <div class="container header-container">
             <a href="#hero" class="logo">
@@ -1316,8 +902,8 @@
             
             <nav class="nav-menu" id="navMenu">
                 <a href="#services" class="nav-link">Услуги</a>
-                <a href="#reviews" class="nav-link">Отзывы</a>
                 <a href="#order" class="nav-link">Заявка</a>
+                <a href="#gallery" class="nav-link">Наши работы</a>
                 <a href="#contacts" class="nav-link">Контакты</a>
             </nav>
             
@@ -1333,24 +919,17 @@
         </div>
     </header>
 
-    <!-- Анимированный главный баннер с реальным фото -->
+    <!-- Главный баннер -->
     <section class="hero" id="hero">
         <div class="container">
-            <div class="hero-content">
-                <h1 class="hero-title">Профессиональный ремонт техники и <span>печать документов</span> в Нягани</h1>
-                <p class="hero-subtitle">Быстро, качественно и с гарантией. Мы ремонтируем телефоны, ноутбуки, телевизоры и предоставляем услуги печати с доставкой по городу. Более 1500 выполненных заказов и 98% довольных клиентов.</p>
+            <div class="hero-content fade-in">
+                <h1 class="hero-title">Уважаемые клиенты!<br>Мы предлагаем профессиональный ремонт техники и печать документов в Нягани</h1>
+                <p class="hero-subtitle">Высокое качество обслуживания и доступные цены</p>
                 <div class="hero-actions">
-                    <a href="#order" class="btn">Оставить заявку</a>
-                    <a href="#services" class="btn btn-outline">Наши услуги</a>
+                    <a href="#order" class="btn">Оформить заказ</a>
+                    <a href="#contacts" class="btn btn-outline">Связаться с нами</a>
                 </div>
             </div>
-        </div>
-        
-        <!-- Плавающие элементы для анимации -->
-        <div class="floating-elements">
-            <div class="floating-element"></div>
-            <div class="floating-element"></div>
-            <div class="floating-element"></div>
         </div>
     </section>
 
@@ -1360,208 +939,109 @@
             <div class="counters-grid">
                 <div class="counter-item fade-in">
                     <div class="counter-value" data-count="1500">0</div>
-                    <div class="counter-label">Выполненных ремонтов</div>
+                    <div class="counter-label">Выполнено заказов</div>
                 </div>
                 <div class="counter-item fade-in">
                     <div class="counter-value" data-count="98">0</div>
-                    <div class="counter-label">Довольных клиентов, %</div>
+                    <div class="counter-label">Удовлетворенность клиентов, %</div>
                 </div>
                 <div class="counter-item fade-in">
                     <div class="counter-value" data-count="24">0</div>
-                    <div class="counter-label">Мастера в штате</div>
+                    <div class="counter-label">Специалисты в команде</div>
                 </div>
                 <div class="counter-item fade-in">
                     <div class="counter-value" data-count="3">0</div>
-                    <div class="counter-label">Года на рынке</div>
+                    <div class="counter-label">Год основания сервиса</div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Услуги с иконками -->
+    <!-- Услуги -->
     <section class="section services" id="services">
         <div class="container">
-            <h2 class="section-title">🔧 Наши услуги</h2>
-            <p class="section-subtitle">Предоставляем полный спектр услуг по ремонту техники и печати документов в Нягани</p>
+            <h2 class="section-title">Какие услуги мы оказываем?</h2>
             
             <div class="services-grid">
                 <div class="service-card fade-in">
-                    <div class="service-icon">
-                        <i class="fas fa-print"></i>
-                    </div>
-                    <h3>✨ Распечатка документов с доставкой</h3>
-                    <p>Черно-белая и цветная печать любых документов. Форматы А4, А3. Срочная печать и доставка по всему городу.</p>
-                    <div class="service-price">от <span>10</span> ₽</div>
+                    <img src="images/service1.jpg" 
+                         alt="Распечатка документов с доставкой по Нягани" class="service-image">
+                    <h3>Распечатка документов с доставкой по Нягани</h3>
+                    <p>Цветная и черно-белая печать любых документов формата A4 и A3. Доставка осуществляется быстро и удобно.</p>
+                    <div class="service-price">От <span>10 руб./лист</span></div>
                     <div class="service-action">
                         <button class="btn order-service" data-service="Печать документов">Заказать</button>
                     </div>
                 </div>
                 
                 <div class="service-card fade-in">
-                    <div class="service-icon">
-                        <i class="fas fa-tools"></i>
-                    </div>
-                    <h3>✨ Вызов мастера на дом</h3>
-                    <p>Выезд специалиста в течение 2 часов. Диагностика и ремонт на дому. Удобно для пенсионеров и занятых людей.</p>
-                    <div class="service-price">от <span>300</span> ₽</div>
+                    <img src="images/service2.jpg" 
+                         alt="Вызов мастера на дом для ремонта техники" class="service-image">
+                    <h3>Вызов мастера на дом для ремонта телефонов, ноутбуков, телевизоров</h3>
+                    <p>Специалист прибудет в удобное вам время и выполнит диагностику и ремонт вашей техники прямо дома.</p>
+                    <div class="service-price">От <span>300 руб.</span></div>
                     <div class="service-action">
                         <button class="btn order-service" data-service="Вызов мастера на дом">Заказать</button>
                     </div>
                 </div>
                 
                 <div class="service-card fade-in">
-                    <div class="service-icon">
-                        <i class="fas fa-headset"></i>
-                    </div>
-                    <h3>Бесплатная консультация</h3>
-                    <p>Поможем определить проблему и назовем точную стоимость ремонта. Консультация по телефону или в сервисе.</p>
+                    <img src="images/service3.jpg" 
+                         alt="Консультация по ремонту" class="service-image">
+                    <h3>Консультация по ремонту и стоимости работ</h3>
+                    <p>Получите бесплатную консультацию наших специалистов и точные расценки на необходимые услуги.</p>
                     <div class="service-price"><span>Бесплатно</span></div>
                     <div class="service-action">
-                        <button class="btn btn-yellow order-service" data-service="Консультация">Заказать</button>
+                        <button class="btn btn-black order-service" data-service="Консультация">Заказать</button>
                     </div>
                 </div>
                 
                 <div class="service-card fade-in">
-                    <div class="service-icon">
-                        <i class="fas fa-clipboard-check"></i>
-                    </div>
-                    <h3>Уточнение статуса заказа</h3>
-                    <p>Быстрое информирование о готовности вашего устройства. Прозрачность работы и соблюдение сроков.</p>
+                    <img src="images/service4.jpg" 
+                         alt="Уточнение статуса заказа" class="service-image">
+                    <h3>Проверка статуса вашего заказа</h3>
+                    <p>Узнайте статус своего заказа онлайн или свяжитесь с нашим специалистом.</p>
                     <div class="service-price"><span>Бесплатно</span></div>
                     <div class="service-action">
-                        <button class="btn btn-yellow order-service" data-service="Статус заказа">Заказать</button>
-                    </div>
-                </div>
-                
-                <div class="service-card fade-in">
-                    <div class="service-icon">
-                        <i class="fas fa-mobile-alt"></i>
-                    </div>
-                    <h3>Ремонт телефонов</h3>
-                    <p>Замена экранов, аккумуляторов, разъемов зарядки, динамиков и других комплектующих для всех моделей смартфонов.</p>
-                    <div class="service-price">от <span>500</span> ₽</div>
-                    <div class="service-action">
-                        <button class="btn order-service" data-service="Ремонт телефонов">Заказать</button>
-                    </div>
-                </div>
-                
-                <div class="service-card fade-in">
-                    <div class="service-icon">
-                        <i class="fas fa-laptop"></i>
-                    </div>
-                    <h3>Ремонт ноутбуков</h3>
-                    <p>Диагностика и ремонт ноутбуков любой сложности. Замена матриц, клавиатур, чистка от пыли, замена термопасты.</p>
-                    <div class="service-price">от <span>800</span> ₽</div>
-                    <div class="service-action">
-                        <button class="btn order-service" data-service="Ремонт ноутбуков">Заказать</button>
+                        <button class="btn btn-black order-service" data-service="Статус заказа">Заказать</button>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Отзывы -->
-    <section class="section reviews" id="reviews">
+    <!-- Галерея -->
+    <section class="section gallery" id="gallery">
         <div class="container">
-            <h2 class="section-title">💬 Отзывы клиентов</h2>
-            <p class="section-subtitle">Что говорят о нас наши клиенты</p>
+            <h2 class="section-title">Галерея наших работ</h2>
+            <p class="section-subtitle">Посмотрите примеры наших успешных проектов и отремонтированной техники</p>
             
-            <div class="reviews-slider">
-                <div class="reviews-container" id="reviewsContainer">
-                    <div class="review-card fade-in">
-                        <div class="review-header">
-                            <div class="review-avatar">ИК</div>
-                            <div class="review-info">
-                                <h4>Ирина Ковалева</h4>
-                                <div class="review-date">15 марта 2024</div>
-                            </div>
-                        </div>
-                        <div class="review-rating">
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                        </div>
-                        <div class="review-text">
-                            Очень довольна работой сервиса! Сломался ноутбук, перестал включаться. Приехал мастер, за 40 минут все починил прямо на дому. Цена адекватная, никаких переплат. Теперь всем рекомендую!
-                        </div>
-                    </div>
-                    
-                    <div class="review-card fade-in">
-                        <div class="review-header">
-                            <div class="review-avatar">АС</div>
-                            <div class="review-info">
-                                <h4>Александр Смирнов</h4>
-                                <div class="review-date">10 марта 2024</div>
-                            </div>
-                        </div>
-                        <div class="review-rating">
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star-half-alt"></i>
-                        </div>
-                        <div class="review-text">
-                            Нужно было срочно распечатать документы для подачи в суд. Позвонил, заказал печать с доставкой. Привезли все в течение часа, качество печати отличное. Очень выручили в сложной ситуации, спасибо!
-                        </div>
-                    </div>
-                    
-                    <div class="review-card fade-in">
-                        <div class="review-header">
-                            <div class="review-avatar">ОМ</div>
-                            <div class="review-info">
-                                <h4>Ольга Михайлова</h4>
-                                <div class="review-date">5 марта 2024</div>
-                            </div>
-                        </div>
-                        <div class="review-rating">
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                        </div>
-                        <div class="review-text">
-                            Уронила телефон, разбился экран. Отнесла в сервис, заменили за 2 часа. Цена ниже, чем в других местах, дали гарантию. Персонал вежливый, все объяснили. Очень приятно было иметь дело с профессионалами.
-                        </div>
-                    </div>
-                    
-                    <div class="review-card fade-in">
-                        <div class="review-header">
-                            <div class="review-avatar">ДП</div>
-                            <div class="review-info">
-                                <h4>Дмитрий Петров</h4>
-                                <div class="review-date">28 февраля 2024</div>
-                            </div>
-                        </div>
-                        <div class="review-rating">
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                        </div>
-                        <div class="review-text">
-                            Телевизор перестал показывать. Вызвал мастера, приехал в этот же день. Оказалась не сложная поломка, починили за 30 минут. Работают аккуратно, убрали за собой. Цена фиксированная, как и говорили по телефону. Рекомендую!
-                        </div>
+            <div class="gallery-grid">
+                <div class="gallery-item fade-in">
+                    <img src="images/work1.jpg" 
+                         alt="Ремонт смартфона">
+                    <div class="gallery-overlay">
+                        <h4>Ремонт смартфона</h4>
+                        <p>Замена экрана и восстановление работоспособности устройства</p>
                     </div>
                 </div>
                 
-                <div class="review-controls">
-                    <button class="review-prev" id="reviewPrev">
-                        <i class="fas fa-chevron-left"></i>
-                    </button>
-                    <div class="review-dots" id="reviewDots">
-                        <button class="review-dot active"></button>
-                        <button class="review-dot"></button>
-                        <button class="review-dot"></button>
-                        <button class="review-dot"></button>
+                <div class="gallery-item fade-in">
+                    <img src="images/work2.jpg" 
+                         alt="Сервисный центр">
+                    <div class="gallery-overlay">
+                        <h4>Интерьер нашего центра</h4>
+                        <p>Просторный зал ожидания и зона обслуживания</p>
                     </div>
-                    <button class="review-next" id="reviewNext">
-                        <i class="fas fa-chevron-right"></i>
-                    </button>
+                </div>
+                
+                <div class="gallery-item fade-in">
+                    <img src="images/work3.jpg" 
+                         alt="Ремонт ноутбука">
+                    <div class="gallery-overlay">
+                        <h4>Ремонт ноутбука</h4>
+                        <p>Заменены компоненты и восстановлен внешний вид устройства</p>
+                    </div>
                 </div>
             </div>
         </div>
@@ -1570,14 +1050,14 @@
     <!-- Форма заявки -->
     <section class="section order-form-section" id="order">
         <div class="container">
-            <h2 class="section-title">Оставить заявку</h2>
-            <p class="section-subtitle">Заполните форму, и мы свяжемся с вами в течение 15 минут</p>
+            <h2 class="section-title">Подайте заявку на обслуживание</h2>
+            <p class="section-subtitle">Заполните форму ниже, и мы оперативно свяжемся с вами</p>
             
             <div class="form-container fade-in">
                 <form id="orderForm">
                     <div class="form-row">
                         <div class="form-group">
-                            <label class="form-label" for="name">Ваше имя *</label>
+                            <label class="form-label" for="name">Имя клиента *</label>
                             <input type="text" id="name" class="form-control" required>
                         </div>
                         <div class="form-group">
@@ -1587,7 +1067,7 @@
                     </div>
                     
                     <div class="form-group">
-                        <label class="form-label" for="service">Услуга *</label>
+                        <label class="form-label" for="service">Тип услуги *</label>
                         <select id="service" class="form-control" required>
                             <option value="">Выберите услугу</option>
                             <option value="Печать документов">Печать документов</option>
@@ -1601,8 +1081,8 @@
                     </div>
                     
                     <div class="form-group">
-                        <label class="form-label" for="message">Описание проблемы или задачи</label>
-                        <textarea id="message" class="form-control" rows="4" placeholder="Опишите, что случилось с устройством или что нужно распечатать..."></textarea>
+                        <label class="form-label" for="message">Описание проблемы или задача</label>
+                        <textarea id="message" class="form-control" rows="4" placeholder="Подробнее расскажите о вашем устройстве или задаче..."></textarea>
                     </div>
                     
                     <div class="form-group">
@@ -1619,8 +1099,7 @@
     <!-- Контакты -->
     <section class="section contacts" id="contacts">
         <div class="container">
-            <h2 class="section-title">📍 Наши контакты</h2>
-            <p class="section-subtitle">Свяжитесь с нами удобным для вас способом</p>
+            <h2 class="section-title">Контактная информация</h2>
             
             <div class="contacts-grid">
                 <div class="contact-card fade-in">
@@ -1632,7 +1111,7 @@
                     <div class="contact-item">
                         <i class="fas fa-map-pin"></i>
                         <div class="contact-text">
-                            <h4>⛩️️ Адрес:</h4>
+                            <h4>Адреса офиса:</h4>
                             <p>г. Нягань, ул. Интернациональная, 82а, ТЦ «Сибиряк»</p>
                         </div>
                     </div>
@@ -1640,17 +1119,8 @@
                     <div class="contact-item">
                         <i class="fas fa-phone-alt"></i>
                         <div class="contact-text">
-                            <h4>🔊️ Телефон:</h4>
+                            <h4>Телефоны:</h4>
                             <p><a href="tel:+79224220025">+7 (922) 422-00-25</a></p>
-                        </div>
-                    </div>
-                    
-                    <div class="contact-item">
-                        <i class="fas fa-clock"></i>
-                        <div class="contact-text">
-                            <h4>🕐️ Режим работы:</h4>
-                            <p>Пн-Пт: 9:00-20:00</p>
-                            <p>Сб-Вс: 10:00-18:00</p>
                         </div>
                     </div>
                 </div>
@@ -1664,7 +1134,7 @@
                     <div class="contact-item">
                         <i class="fab fa-telegram"></i>
                         <div class="contact-text">
-                            <h4>✍️️ Telegram:</h4>
+                            <h4>Telegram:</h4>
                             <p><a href="https://t.me/asc_Nyagan" target="_blank">t.me/asc_Nyagan</a></p>
                             <p>Быстрая связь и консультации</p>
                         </div>
@@ -1673,18 +1143,18 @@
                     <div class="contact-item">
                         <i class="fab fa-vk"></i>
                         <div class="contact-text">
-                            <h4>✍️️ ВКонтакте:</h4>
+                            <h4>ВКонтакте:</h4>
                             <p><a href="https://vk.ru/asc_nyagan" target="_blank">vk.ru/asc_nyagan</a></p>
-                            <p>Акции и полезная информация</p>
+                            <p>Новости и акции</p>
                         </div>
                     </div>
                     
                     <div class="contact-item">
                         <i class="fas fa-comment-alt"></i>
                         <div class="contact-text">
-                            <h4>✍️️ Мессенджер MAX:</h4>
+                            <h4>Мессенджер MAX:</h4>
                             <p><a href="https://max.ru/u/f9LHodD0cOIhEjYNqAHYdY51oVtuhZ7u45YPJjW3YO6xS8UYkuKCKzRvyVg" target="_blank">Написать в MAX</a></p>
-                            <p>Быстрое общение и решение вопросов</p>
+                            <p>Быстрое общение и решения проблем</p>
                         </div>
                     </div>
                 </div>
@@ -1707,7 +1177,7 @@
                         </div>
                     </div>
                     <div class="studio-credits">
-                        Сайт создан в студии <a href="https://nyaganmaksimov-sys.github.io/studio-dizaina/" target="_blank">Дизайна DIZMAX</a>
+                        Сайт разработан студией дизайна <a href="https://nyaganmaksimov-sys.github.io/studio-dizaina/" target="_blank">DIZMAX</a>
                     </div>
                     <div class="social-links">
                         <a href="https://t.me/asc_Nyagan" target="_blank" class="social-link">
@@ -1745,7 +1215,7 @@
             </div>
             
             <div class="copyright">
-                <p>&copy; 2023 Ассоциация сервисных центров — Нягань. Все права защищены.</p>
+                <p>© 2023 Ассоциация сервисных центров — Нягань. Все права защищены.</p>
             </div>
         </div>
     </footer>
@@ -1757,7 +1227,9 @@
     </div>
 
     <script>
+        // Основной код JavaScript
         document.addEventListener('DOMContentLoaded', function() {
+            
             // Плавный скролл для навигации
             document.querySelectorAll('a[href^="#"]').forEach(anchor => {
                 anchor.addEventListener('click', function(e) {
@@ -1786,7 +1258,7 @@
             mobileMenuBtn.addEventListener('click', function() {
                 navMenu.classList.toggle('active');
                 mobileMenuBtn.innerHTML = navMenu.classList.contains('active') 
-                    ? '<i class="fas fa-times"></i>' 
+                    ? '<i class="fas fa-times"></i>'
                     : '<i class="fas fa-bars"></i>';
             });
             
@@ -1842,73 +1314,6 @@
             window.addEventListener('scroll', checkFade);
             checkFade(); // Проверить при загрузке
             
-            // Слайдер отзывов
-            const reviewsContainer = document.getElementById('reviewsContainer');
-            const reviewCards = document.querySelectorAll('.review-card');
-            const reviewPrev = document.getElementById('reviewPrev');
-            const reviewNext = document.getElementById('reviewNext');
-            const reviewDots = document.querySelectorAll('.review-dot');
-            
-            let currentReview = 0;
-            const totalReviews = reviewCards.length;
-            
-            // Установить ширину контейнера отзывов
-            reviewsContainer.style.width = `${totalReviews * 100}%`;
-            
-            // Обновить отображение слайдера
-            const updateReviewSlider = () => {
-                const translateX = -currentReview * 100;
-                reviewsContainer.style.transform = `translateX(${translateX}%)`;
-                
-                // Обновить активную точку
-                reviewDots.forEach((dot, index) => {
-                    if(index === currentReview) {
-                        dot.classList.add('active');
-                    } else {
-                        dot.classList.remove('active');
-                    }
-                });
-            };
-            
-            // Следующий отзыв
-            reviewNext.addEventListener('click', () => {
-                currentReview = (currentReview + 1) % totalReviews;
-                updateReviewSlider();
-            });
-            
-            // Предыдущий отзыв
-            reviewPrev.addEventListener('click', () => {
-                currentReview = (currentReview - 1 + totalReviews) % totalReviews;
-                updateReviewSlider();
-            });
-            
-            // Переход к конкретному отзыву по клику на точку
-            reviewDots.forEach((dot, index) => {
-                dot.addEventListener('click', () => {
-                    currentReview = index;
-                    updateReviewSlider();
-                });
-            });
-            
-            // Автопереключение отзывов каждые 5 секунд
-            let reviewInterval = setInterval(() => {
-                currentReview = (currentReview + 1) % totalReviews;
-                updateReviewSlider();
-            }, 5000);
-            
-            // Остановить автопереключение при наведении
-            reviewsContainer.addEventListener('mouseenter', () => {
-                clearInterval(reviewInterval);
-            });
-            
-            // Возобновить автопереключение при уходе мыши
-            reviewsContainer.addEventListener('mouseleave', () => {
-                reviewInterval = setInterval(() => {
-                    currentReview = (currentReview + 1) % totalReviews;
-                    updateReviewSlider();
-                }, 5000);
-            });
-            
             // Форма заявки
             const orderForm = document.getElementById('orderForm');
             const notification = document.getElementById('notification');
@@ -1933,27 +1338,16 @@
                         behavior: 'smooth'
                     });
                     
-                    // Анимация подсветки поля выбора услуги
+                    // Подсветить поле выбора услуги
                     const serviceSelect = document.getElementById('service');
-                    serviceSelect.style.borderColor = 'var(--primary-blue)';
-                    serviceSelect.style.boxShadow = '0 0 0 3px rgba(42, 110, 187, 0.1)';
-                    
-                    // Анимация пульсации
-                    serviceSelect.animate([
-                        { transform: 'scale(1)' },
-                        { transform: 'scale(1.02)' },
-                        { transform: 'scale(1)' }
-                    ], {
-                        duration: 300,
-                        iterations: 1
-                    });
-                    
+                    serviceSelect.style.borderColor = 'var(--primary-yellow)';
+                    serviceSelect.style.boxShadow = '0 0 0 3px rgba(255, 193, 7, 0.1)';
                     setTimeout(() => {
                         serviceSelect.style.borderColor = '';
                         serviceSelect.style.boxShadow = '';
                     }, 2000);
                     
-                    showNotification(`Выбрана услуга: "${service}". Заполните остальные поля формы.`);
+                    showNotification(`Вы выбрали услугу: ${service}. Заполните остальные поля формы.`);
                 });
             });
             
@@ -1971,25 +1365,14 @@
                     date: new Date().toLocaleString('ru-RU')
                 };
                 
-                // В реальном приложении здесь был бы AJAX запрос на сервер
+                // В реальном приложении здесь был бы AJAX-запрос на сервер
                 console.log('Заявка отправлена:', formData);
                 
-                // Анимация успешной отправки
-                const submitBtn = this.querySelector('button[type="submit"]');
-                const originalText = submitBtn.textContent;
-                
-                submitBtn.innerHTML = '<i class="fas fa-check"></i> Отправлено!';
-                submitBtn.style.backgroundColor = '#10B981';
-                
-                // Очистить форму через секунду
-                setTimeout(() => {
-                    orderForm.reset();
-                    submitBtn.textContent = originalText;
-                    submitBtn.style.backgroundColor = '';
-                }, 1500);
+                // Очистить форму
+                orderForm.reset();
                 
                 // Показать уведомление
-                showNotification('Заявка успешно отправлена! Мы свяжемся с вами в течение 15 минут.');
+                showNotification('Заявка успешно отправлена! Мы свяжемся с вами в ближайшее время.');
             });
             
             // Функция показа уведомления
@@ -2029,17 +1412,8 @@
             
             // Имитация загрузки данных
             setTimeout(() => {
-                showNotification('Добро пожаловать! У нас действуют скидки на ремонт ноутбуков до конца месяца.');
+                showNotification('Добро пожаловать! Узнайте больше о наших услугах и акциях.');
             }, 2000);
-            
-            // Анимация для плавающих элементов
-            const floatingElements = document.querySelectorAll('.floating-element');
-            floatingElements.forEach(el => {
-                const randomDelay = Math.random() * 2;
-                const randomDuration = 3 + Math.random() * 3;
-                el.style.animationDelay = `${randomDelay}s`;
-                el.style.animationDuration = `${randomDuration}s`;
-            });
         });
     </script>
 </body>
