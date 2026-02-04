@@ -3,1834 +3,415 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ассоциация сервисных центров — Нягани | Печать и ремонт с доставкой</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;600;700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <title>Ассоциация сервисных центров — Нягань</title>
     <style>
-        /* Современная цветовая палитра */
-        :root {
-            --primary-black: #0a0a0a;
-            --primary-yellow: #FFD700;
-            --yellow-light: #FFF8D9;
-            --yellow-dark: #E6C300;
-            --white: #FFFFFF;
-            --gray-50: #fafafa;
-            --gray-100: #f5f5f5;
-            --gray-200: #e5e5e5;
-            --gray-300: #d4d4d4;
-            --gray-400: #a3a3a3;
-            --gray-500: #737373;
-            --gray-600: #525252;
-            --gray-900: #171717;
-            --shadow-sm: 0 1px 3px rgba(0,0,0,0.12);
-            --shadow-md: 0 4px 12px rgba(0,0,0,0.08);
-            --shadow-lg: 0 20px 40px rgba(0,0,0,0.1);
-            --shadow-xl: 0 25px 50px rgba(0,0,0,0.15);
-            --radius-sm: 8px;
-            --radius-md: 12px;
-            --radius-lg: 20px;
-            --radius-xl: 32px;
-            --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-            --transition-slow: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
-        }
-        
-        /* Базовые стили */
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
         }
         
-        html {
-            scroll-behavior: smooth;
-            overflow-x: hidden;
-        }
-        
         body {
-            font-family: 'Plus Jakarta Sans', sans-serif;
-            line-height: 1.7;
-            color: var(--gray-600);
-            background-color: var(--white);
-            overflow-x: hidden;
-            -webkit-font-smoothing: antialiased;
-            -moz-osx-font-smoothing: grayscale;
-        }
-        
-        h1, h2, h3, h4, h5 {
-            font-family: 'Manrope', sans-serif;
-            font-weight: 700;
-            line-height: 1.2;
-            color: var(--primary-black);
+            font-family: 'Roboto', sans-serif;
+            background-color: #fafafa;
+            color: #333;
+            line-height: 1.6;
         }
         
         .container {
-            width: 100%;
-            max-width: 1280px;
-            margin: 0 auto;
-            padding: 0 24px;
+            max-width: 1200px;
+            margin: auto;
+            overflow: hidden;
+            padding: 0 2rem;
         }
         
-        section {
-            padding: 100px 0;
-        }
-        
-        img {
-            max-width: 100%;
-            height: auto;
-            display: block;
-        }
-        
-        /* Анимации */
-        @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(20px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-        
-        @keyframes slideInLeft {
-            from { opacity: 0; transform: translateX(-30px); }
-            to { opacity: 1; transform: translateX(0); }
-        }
-        
-        @keyframes slideInRight {
-            from { opacity: 0; transform: translateX(30px); }
-            to { opacity: 1; transform: translateX(0); }
-        }
-        
-        @keyframes float {
-            0%, 100% { transform: translateY(0); }
-            50% { transform: translateY(-10px); }
-        }
-        
-        @keyframes pulse {
-            0%, 100% { opacity: 1; }
-            50% { opacity: 0.7; }
-        }
-        
-        .animate-on-scroll {
-            opacity: 0;
-            transform: translateY(30px);
-            transition: var(--transition-slow);
-        }
-        
-        .animate-on-scroll.animated {
-            opacity: 1;
-            transform: translateY(0);
-        }
-        
-        /* Хедер - современный */
-        header {
-            position: fixed;
+        /* Шапка сайта */
+        .header {
+            background-color: white;
+            position: sticky;
             top: 0;
-            left: 0;
-            width: 100%;
             z-index: 1000;
-            background-color: rgba(255, 255, 255, 0.95);
-            backdrop-filter: blur(20px);
-            border-bottom: 1px solid rgba(0, 0, 0, 0.05);
-            transition: var(--transition);
-            padding: 16px 0;
-        }
-        
-        header.scrolled {
-            padding: 12px 0;
-            box-shadow: var(--shadow-md);
-        }
-        
-        .header-container {
             display: flex;
-            justify-content: space-between;
             align-items: center;
+            justify-content: space-between;
+            padding: 1rem 0;
         }
         
         .logo {
-            display: flex;
-            align-items: center;
-            text-decoration: none;
-            gap: 12px;
-            animation: slideInLeft 0.8s ease-out;
-        }
-        
-        .logo-icon {
-            width: 48px;
-            height: 48px;
-            background: linear-gradient(135deg, var(--primary-yellow) 0%, var(--yellow-dark) 100%);
-            border-radius: var(--radius-md);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: var(--primary-black);
-            font-size: 1.5rem;
-            box-shadow: var(--shadow-md);
-        }
-        
-        .logo-text {
-            display: flex;
-            flex-direction: column;
-        }
-        
-        .logo-main {
-            font-family: 'Manrope', sans-serif;
-            font-weight: 800;
-            font-size: 1.4rem;
-            color: var(--primary-black);
-            letter-spacing: -0.5px;
-        }
-        
-        .logo-city {
-            font-size: 0.9rem;
-            color: var(--gray-500);
-            font-weight: 600;
-        }
-        
-        .logo-city span {
-            color: var(--primary-yellow);
+            height: 50px;
         }
         
         nav ul {
+            list-style-type: none;
             display: flex;
-            list-style: none;
-            gap: 32px;
-            animation: fadeIn 0.8s ease-out 0.2s both;
+            gap: 1.5rem;
         }
         
-        nav ul li a {
+        nav a {
             text-decoration: none;
-            color: var(--gray-600);
-            font-weight: 600;
-            font-size: 0.95rem;
-            transition: var(--transition);
-            position: relative;
-            padding: 8px 0;
+            color: black;
+            transition: all .3s ease;
         }
         
-        nav ul li a::after {
-            content: '';
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            width: 0;
-            height: 2px;
-            background: linear-gradient(90deg, var(--primary-yellow) 0%, var(--yellow-dark) 100%);
-            transition: var(--transition);
+        nav a:hover {
+            color: #FFD700;
         }
         
-        nav ul li a:hover {
-            color: var(--primary-black);
-        }
-        
-        nav ul li a:hover::after {
-            width: 100%;
-        }
-        
-        .header-actions {
-            display: flex;
-            align-items: center;
-            gap: 16px;
-            animation: slideInRight 0.8s ease-out 0.4s both;
-        }
-        
-        .phone-link {
-            display: flex;
-            align-items: center;
-            gap: 8px;
-            text-decoration: none;
-            color: var(--primary-black);
-            font-weight: 700;
-            font-size: 1rem;
-            padding: 10px 20px;
-            background-color: var(--yellow-light);
-            border-radius: var(--radius-md);
-            transition: var(--transition);
-        }
-        
-        .phone-link:hover {
-            background-color: var(--primary-yellow);
-            transform: translateY(-2px);
-        }
-        
-        .order-btn {
-            background: linear-gradient(135deg, var(--primary-yellow) 0%, var(--yellow-dark) 100%);
-            color: var(--primary-black);
+        .btn-order {
+            background-color: #FFD700;
+            color: white;
             border: none;
-            padding: 12px 28px;
-            border-radius: var(--radius-md);
-            font-weight: 700;
-            font-size: 0.95rem;
+            padding: 0.75em 1.5em;
             cursor: pointer;
-            transition: var(--transition);
-            display: flex;
-            align-items: center;
-            gap: 8px;
-            box-shadow: var(--shadow-md);
+            font-size: 1em;
+            border-radius: 5px;
+            transition: transform .3s ease;
         }
         
-        .order-btn:hover {
-            transform: translateY(-3px);
-            box-shadow: var(--shadow-lg);
-        }
-        
-        .mobile-menu-btn {
-            display: none;
-            background: none;
-            border: none;
-            font-size: 1.5rem;
-            cursor: pointer;
-            color: var(--primary-black);
-            z-index: 1001;
-        }
-        
-        /* Геро-секция - современная */
-        .hero {
-            padding: 160px 0 100px;
-            background: linear-gradient(135deg, var(--white) 0%, var(--gray-50) 100%);
-            position: relative;
-            overflow: hidden;
-        }
-        
-        .hero::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            right: 0;
-            width: 50%;
-            height: 100%;
-            background: linear-gradient(135deg, var(--yellow-light) 0%, transparent 100%);
-            z-index: 0;
-        }
-        
-        .hero-container {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 80px;
-            align-items: center;
-            position: relative;
-            z-index: 1;
-        }
-        
-        .hero-content {
-            animation: slideInLeft 1s ease-out;
-        }
-        
-        .hero-badge {
-            display: inline-flex;
-            align-items: center;
-            gap: 8px;
-            background-color: var(--yellow-light);
-            color: var(--primary-black);
-            padding: 10px 20px;
-            border-radius: 50px;
-            font-weight: 600;
-            font-size: 0.9rem;
-            margin-bottom: 24px;
-        }
-        
-        .hero-badge i {
-            color: var(--primary-yellow);
-        }
-        
-        .hero-title {
-            font-size: 3.5rem;
-            margin-bottom: 24px;
-            line-height: 1.1;
-        }
-        
-        .hero-title span {
-            background: linear-gradient(135deg, var(--primary-yellow) 0%, var(--yellow-dark) 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-        }
-        
-        .hero-description {
-            font-size: 1.2rem;
-            color: var(--gray-500);
-            margin-bottom: 40px;
-            max-width: 600px;
-        }
-        
-        .hero-stats {
-            display: flex;
-            gap: 40px;
-            margin-bottom: 40px;
-        }
-        
-        .stat-item {
-            display: flex;
-            flex-direction: column;
-        }
-        
-        .stat-number {
-            font-family: 'Manrope', sans-serif;
-            font-weight: 800;
-            font-size: 2.5rem;
-            color: var(--primary-black);
-            line-height: 1;
-        }
-        
-        .stat-label {
-            font-size: 0.9rem;
-            color: var(--gray-400);
-            margin-top: 4px;
-        }
-        
-        .hero-buttons {
-            display: flex;
-            gap: 16px;
-            flex-wrap: wrap;
-        }
-        
-        .hero-btn {
-            padding: 16px 32px;
-            border-radius: var(--radius-md);
-            font-weight: 700;
-            font-size: 1rem;
-            cursor: pointer;
-            transition: var(--transition);
-            display: flex;
-            align-items: center;
-            gap: 10px;
-            border: none;
-        }
-        
-        .hero-btn.primary {
-            background: linear-gradient(135deg, var(--primary-yellow) 0%, var(--yellow-dark) 100%);
-            color: var(--primary-black);
-            box-shadow: var(--shadow-md);
-        }
-        
-        .hero-btn.secondary {
-            background-color: transparent;
-            color: var(--primary-black);
-            border: 2px solid var(--gray-200);
-        }
-        
-        .hero-btn:hover {
-            transform: translateY(-3px);
-            box-shadow: var(--shadow-lg);
-        }
-        
-        .hero-btn.primary:hover {
-            background: linear-gradient(135deg, var(--yellow-dark) 0%, var(--primary-yellow) 100%);
-        }
-        
-        .hero-btn.secondary:hover {
-            border-color: var(--primary-yellow);
-            background-color: var(--yellow-light);
-        }
-        
-        .hero-visual {
-            animation: slideInRight 1s ease-out;
-            position: relative;
-        }
-        
-        .hero-image {
-            position: relative;
-            border-radius: var(--radius-xl);
-            overflow: hidden;
-            box-shadow: var(--shadow-xl);
-        }
-        
-        .hero-image img {
-            width: 100%;
-            height: auto;
-            transition: var(--transition-slow);
-        }
-        
-        .hero-image:hover img {
+        .btn-order:hover {
             transform: scale(1.05);
         }
         
-        .floating-badge {
-            position: absolute;
-            bottom: -20px;
-            right: -20px;
-            background: linear-gradient(135deg, var(--primary-yellow) 0%, var(--yellow-dark) 100%);
-            color: var(--primary-black);
-            padding: 20px;
-            border-radius: var(--radius-lg);
-            box-shadow: var(--shadow-xl);
-            animation: float 3s ease-in-out infinite;
-            z-index: 2;
-        }
-        
-        .floating-badge-content {
+        /* Главный баннер */
+        .hero-section {
+            min-height: calc(100vh - 60px);
             display: flex;
+            flex-direction: column;
+            justify-content: center;
             align-items: center;
-            gap: 12px;
-        }
-        
-        .floating-badge-icon {
-            font-size: 2rem;
-        }
-        
-        .floating-badge-text {
-            font-weight: 700;
-            font-size: 1.1rem;
-        }
-        
-        /* Секции - современные */
-        .section-header {
             text-align: center;
-            margin-bottom: 80px;
+            background-color: #ffffff;
+            padding-top: 60px;
         }
         
-        .section-label {
-            display: inline-block;
-            color: var(--primary-yellow);
-            font-weight: 700;
-            font-size: 0.9rem;
-            text-transform: uppercase;
-            letter-spacing: 2px;
-            margin-bottom: 16px;
+        .buttons button {
+            background-color: #FFD700;
+            color: white;
+            border: none;
+            padding: 0.75em 1.5em;
+            cursor: pointer;
+            font-size: 1em;
+            border-radius: 5px;
+            margin: 0 10px;
+            transition: transform .3s ease;
         }
         
-        .section-title {
+        .buttons button:hover {
+            transform: scale(1.05);
+        }
+        
+        /* Остальные секции */
+        .section {
+            padding: 4rem 0;
+            text-align: center;
+        }
+        
+        .icon {
             font-size: 3rem;
-            margin-bottom: 20px;
+            color: #FFD700;
+            margin-bottom: 1rem;
         }
         
-        .section-subtitle {
-            font-size: 1.2rem;
-            color: var(--gray-500);
-            max-width: 600px;
-            margin: 0 auto;
+        .print-services ol,
+        .repair-services p,
+        .delivery-info ul,
+        .on-site-repairs ul,
+        .service-pickup ul {
+            list-style-position: inside;
+            list-style-type: disc;
+            text-align: left;
+            width: 80%;
+            margin: auto;
         }
         
-        /* Секция услуг */
-        .services-section {
-            background-color: var(--white);
+        .contacts address {
+            text-align: left;
+            line-height: 1.5;
         }
         
-        .services-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-            gap: 32px;
+        .promotions ul li::before {
+            content: "\u2B50";
+            margin-right: 0.5rem;
         }
         
-        .service-card {
-            background-color: var(--white);
-            border-radius: var(--radius-lg);
-            overflow: hidden;
-            box-shadow: var(--shadow-md);
-            transition: var(--transition);
-            height: 100%;
+        .social-icons i {
+            font-size: 2rem;
+            color: #FFD700;
+            margin-right: 1rem;
+            transition: transform .3s ease;
         }
         
-        .service-card:hover {
-            transform: translateY(-10px);
-            box-shadow: var(--shadow-xl);
-        }
-        
-        .service-image {
-            height: 200px;
-            overflow: hidden;
-        }
-        
-        .service-image img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            transition: var(--transition-slow);
-        }
-        
-        .service-card:hover .service-image img {
+        .social-icons i:hover {
             transform: scale(1.1);
         }
         
-        .service-content {
-            padding: 32px;
-        }
-        
-        .service-header {
-            display: flex;
-            align-items: center;
-            gap: 16px;
-            margin-bottom: 20px;
-        }
-        
-        .service-icon {
-            width: 56px;
-            height: 56px;
-            background: linear-gradient(135deg, var(--primary-yellow) 0%, var(--yellow-dark) 100%);
-            border-radius: var(--radius-md);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 1.5rem;
-            color: var(--primary-black);
-        }
-        
-        .service-title {
-            font-size: 1.5rem;
-            margin: 0;
-        }
-        
-        .service-features {
-            list-style: none;
-            margin-bottom: 24px;
-        }
-        
-        .service-features li {
-            margin-bottom: 12px;
-            padding-left: 24px;
-            position: relative;
-        }
-        
-        .service-features li::before {
-            content: '✓';
-            position: absolute;
-            left: 0;
-            color: var(--primary-yellow);
-            font-weight: bold;
-        }
-        
-        .service-pricing {
-            background-color: var(--yellow-light);
-            padding: 20px;
-            border-radius: var(--radius-md);
-            margin-top: 20px;
-        }
-        
-        .price-item {
-            display: flex;
-            justify-content: space-between;
-            padding: 8px 0;
-            border-bottom: 1px solid rgba(0, 0, 0, 0.1);
-        }
-        
-        .price-item:last-child {
-            border-bottom: none;
-        }
-        
-        .price-amount {
-            font-weight: 700;
-            color: var(--primary-black);
-        }
-        
-        /* Секция процесса */
-        .process-section {
-            background-color: var(--gray-50);
-        }
-        
-        .process-steps {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 40px;
-            position: relative;
-        }
-        
-        .process-steps::before {
-            content: '';
-            position: absolute;
-            top: 60px;
-            left: 50px;
-            right: 50px;
-            height: 2px;
-            background: linear-gradient(90deg, var(--primary-yellow) 0%, var(--yellow-dark) 100%);
-            z-index: 0;
-        }
-        
-        .process-step {
+        /* Footer */
+        .footer {
+            background-color: #333;
+            color: white;
             text-align: center;
-            position: relative;
-            z-index: 1;
+            padding: 1rem 0;
         }
         
-        .step-number {
-            width: 80px;
-            height: 80px;
-            background: linear-gradient(135deg, var(--primary-yellow) 0%, var(--yellow-dark) 100%);
-            color: var(--primary-black);
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-weight: 800;
-            font-size: 1.8rem;
-            margin: 0 auto 24px;
-            box-shadow: var(--shadow-lg);
-        }
-        
-        .step-icon {
-            font-size: 2rem;
-            margin-bottom: 16px;
-            display: block;
-        }
-        
-        .process-step h4 {
-            font-size: 1.3rem;
-            margin-bottom: 12px;
-        }
-        
-        /* Секция контактов */
-        .contacts-section {
-            background-color: var(--white);
-        }
-        
-        .contacts-container {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 80px;
-            align-items: center;
-        }
-        
-        .contact-info {
-            background-color: var(--white);
-            border-radius: var(--radius-xl);
-            padding: 48px;
-            box-shadow: var(--shadow-xl);
-        }
-        
-        .contact-item {
-            display: flex;
-            align-items: flex-start;
-            gap: 20px;
-            margin-bottom: 32px;
-        }
-        
-        .contact-icon {
-            width: 56px;
-            height: 56px;
-            background: linear-gradient(135deg, var(--primary-yellow) 0%, var(--yellow-dark) 100%);
-            border-radius: var(--radius-md);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 1.3rem;
-            color: var(--primary-black);
-            flex-shrink: 0;
-        }
-        
-        .contact-details h4 {
-            font-size: 1.2rem;
-            margin-bottom: 8px;
-        }
-        
-        .contact-details a {
-            color: var(--gray-600);
-            text-decoration: none;
-            transition: var(--transition);
-            font-weight: 500;
-        }
-        
-        .contact-details a:hover {
-            color: var(--primary-yellow);
-        }
-        
-        .contact-map {
-            border-radius: var(--radius-xl);
-            overflow: hidden;
-            height: 500px;
-            box-shadow: var(--shadow-xl);
-            position: relative;
-        }
-        
-        .map-overlay {
-            position: absolute;
-            bottom: 20px;
-            left: 20px;
-            right: 20px;
-            background-color: rgba(255, 255, 255, 0.95);
-            backdrop-filter: blur(10px);
-            padding: 20px;
-            border-radius: var(--radius-md);
-            box-shadow: var(--shadow-md);
-        }
-        
-        .map-overlay h4 {
-            margin-bottom: 8px;
-        }
-        
-        /* Секция акций */
-        .promo-section {
-            background: linear-gradient(135deg, var(--primary-black) 0%, var(--gray-900) 100%);
-            color: var(--white);
-            position: relative;
-            overflow: hidden;
-        }
-        
-        .promo-section::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: radial-gradient(circle at 30% 50%, rgba(255, 215, 0, 0.1) 0%, transparent 50%);
-        }
-        
-        .promo-section .section-label {
-            color: var(--primary-yellow);
-        }
-        
-        .promo-section .section-title,
-        .promo-section .section-subtitle {
-            color: var(--white);
-        }
-        
-        .promo-cards {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-            gap: 32px;
-        }
-        
-        .promo-card {
-            background-color: rgba(255, 255, 255, 0.1);
-            backdrop-filter: blur(10px);
-            border: 1px solid rgba(255, 255, 255, 0.2);
-            border-radius: var(--radius-lg);
-            padding: 40px;
-            text-align: center;
-            transition: var(--transition);
-        }
-        
-        .promo-card:hover {
-            background-color: rgba(255, 255, 255, 0.15);
-            transform: translateY(-10px);
-        }
-        
-        .promo-icon {
-            font-size: 3rem;
-            margin-bottom: 24px;
-            display: inline-block;
-        }
-        
-        .promo-card h3 {
-            font-size: 1.8rem;
-            margin-bottom: 16px;
-            color: var(--white);
-        }
-        
-        .promo-code {
-            background: linear-gradient(135deg, var(--primary-yellow) 0%, var(--yellow-dark) 100%);
-            color: var(--primary-black);
-            font-weight: 800;
-            font-size: 1.8rem;
-            padding: 16px 32px;
-            border-radius: var(--radius-md);
-            display: inline-block;
-            margin: 24px 0;
-            letter-spacing: 2px;
-            box-shadow: var(--shadow-md);
-        }
-        
-        /* Футер */
-        footer {
-            background-color: var(--primary-black);
-            color: var(--white);
-            padding: 80px 0 40px;
-        }
-        
-        .footer-container {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 60px;
-        }
-        
-        .footer-column h4 {
-            color: var(--white);
-            font-size: 1.2rem;
-            margin-bottom: 24px;
-        }
-        
-        .footer-logo {
-            display: flex;
-            align-items: center;
-            gap: 12px;
-            margin-bottom: 20px;
-        }
-        
-        .footer-logo .logo-icon {
-            background: linear-gradient(135deg, var(--primary-yellow) 0%, var(--yellow-dark) 100%);
-        }
-        
-        .footer-logo .logo-main {
-            color: var(--white);
-        }
-        
-        .footer-links {
-            list-style: none;
-        }
-        
-        .footer-links li {
-            margin-bottom: 12px;
-        }
-        
-        .footer-links a {
-            color: var(--gray-400);
-            text-decoration: none;
-            transition: var(--transition);
-        }
-        
-        .footer-links a:hover {
-            color: var(--primary-yellow);
-        }
-        
-        .social-links {
-            display: flex;
-            gap: 16px;
-            margin-top: 24px;
-        }
-        
-        .social-link {
-            width: 48px;
-            height: 48px;
-            background-color: rgba(255, 255, 255, 0.1);
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: var(--white);
-            text-decoration: none;
-            transition: var(--transition);
-        }
-        
-        .social-link:hover {
-            background-color: var(--primary-yellow);
-            color: var(--primary-black);
-            transform: translateY(-3px);
-        }
-        
-        .copyright {
-            text-align: center;
-            padding-top: 40px;
-            margin-top: 40px;
-            border-top: 1px solid rgba(255, 255, 255, 0.1);
-            color: var(--gray-400);
-            font-size: 0.9rem;
-        }
-        
-        /* Модальное окно */
-        .modal-overlay {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background-color: rgba(0, 0, 0, 0.7);
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            z-index: 2000;
-            opacity: 0;
-            visibility: hidden;
-            transition: var(--transition-slow);
-            backdrop-filter: blur(10px);
-        }
-        
-        .modal-overlay.active {
-            opacity: 1;
-            visibility: visible;
-        }
-        
-        .modal {
-            background-color: var(--white);
-            width: 90%;
-            max-width: 500px;
-            border-radius: var(--radius-xl);
-            padding: 40px;
-            position: relative;
-            transform: translateY(30px) scale(0.95);
-            transition: var(--transition-slow);
-            box-shadow: var(--shadow-xl);
-        }
-        
-        .modal-overlay.active .modal {
-            transform: translateY(0) scale(1);
-        }
-        
-        .modal-close {
-            position: absolute;
-            top: 20px;
-            right: 20px;
-            background: none;
-            border: none;
-            font-size: 1.5rem;
-            cursor: pointer;
-            color: var(--gray-400);
-            transition: var(--transition);
-        }
-        
-        .modal-close:hover {
-            color: var(--primary-black);
-        }
-        
-        .modal h2 {
-            font-size: 2rem;
-            margin-bottom: 30px;
-            text-align: center;
-        }
-        
-        .form-group {
-            margin-bottom: 24px;
-        }
-        
-        .form-group label {
-            display: block;
-            margin-bottom: 8px;
-            font-weight: 600;
-            color: var(--gray-900);
-        }
-        
-        .form-control {
-            width: 100%;
-            padding: 16px;
-            border: 2px solid var(--gray-200);
-            border-radius: var(--radius-md);
-            font-family: 'Plus Jakarta Sans', sans-serif;
-            font-size: 1rem;
-            transition: var(--transition);
-        }
-        
-        .form-control:focus {
-            outline: none;
-            border-color: var(--primary-yellow);
-            box-shadow: 0 0 0 3px rgba(255, 215, 0, 0.1);
-        }
-        
-        .service-options {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 12px;
-            margin-top: 10px;
-        }
-        
-        .service-option {
-            padding: 16px;
-            border: 2px solid var(--gray-200);
-            border-radius: var(--radius-md);
-            cursor: pointer;
-            transition: var(--transition);
-            text-align: center;
-            font-weight: 600;
-        }
-        
-        .service-option.selected {
-            border-color: var(--primary-yellow);
-            background-color: var(--yellow-light);
-            color: var(--primary-black);
-        }
-        
-        .form-error {
-            color: #ff4444;
-            font-size: 0.9rem;
-            margin-top: 5px;
-            display: none;
-        }
-        
-        .modal-submit {
-            background: linear-gradient(135deg, var(--primary-yellow) 0%, var(--yellow-dark) 100%);
-            color: var(--primary-black);
-            border: none;
-            width: 100%;
-            padding: 18px;
-            border-radius: var(--radius-md);
-            font-weight: 700;
-            font-size: 1.1rem;
-            cursor: pointer;
-            transition: var(--transition);
-            margin-top: 10px;
-        }
-        
-        .modal-submit:hover {
-            transform: translateY(-3px);
-            box-shadow: var(--shadow-md);
-        }
-        
-        /* Адаптивность */
-        @media (max-width: 1024px) {
-            .hero-container {
-                grid-template-columns: 1fr;
-                gap: 60px;
-            }
-            
-            .hero::before {
-                display: none;
-            }
-            
-            .hero-visual {
-                order: -1;
-            }
-            
-            .contacts-container {
-                grid-template-columns: 1fr;
-                gap: 60px;
-            }
-            
-            .process-steps::before {
-                display: none;
-            }
-            
-            .process-steps {
-                grid-template-columns: repeat(2, 1fr);
-            }
-        }
-        
-        @media (max-width: 768px) {
-            section {
-                padding: 80px 0;
-            }
-            
-            .hero {
-                padding: 140px 0 60px;
-            }
-            
-            .hero-title {
-                font-size: 2.5rem;
-            }
-            
-            .section-title {
-                font-size: 2.2rem;
-            }
-            
-            .services-grid,
-            .promo-cards {
-                grid-template-columns: 1fr;
-            }
-            
+        /* Адаптация под мобильные устройства */
+        @media screen and (max-width: 768px) {
             nav ul {
-                display: none;
-            }
-            
-            .mobile-menu-btn {
-                display: block;
-            }
-            
-            .header-actions .phone-link span {
-                display: none;
-            }
-            
-            .process-steps {
-                grid-template-columns: 1fr;
-                gap: 40px;
-            }
-            
-            .hero-stats {
                 flex-direction: column;
-                gap: 20px;
+                gap: 0.5rem;
             }
             
-            .footer-container {
-                grid-template-columns: 1fr;
-                gap: 40px;
+            .btn-order {
+                margin-top: 1rem;
             }
-        }
-        
-        @media (max-width: 480px) {
-            .hero-title {
+            
+            .section h2 {
+                font-size: 1.5rem;
+            }
+            
+            .icon {
                 font-size: 2rem;
             }
             
-            .section-title {
-                font-size: 1.8rem;
-            }
-            
-            .hero-buttons {
-                flex-direction: column;
-            }
-            
-            .hero-btn {
+            .buttons button {
                 width: 100%;
-                justify-content: center;
+                margin-bottom: 1rem;
             }
             
-            .service-content {
-                padding: 24px;
-            }
-            
-            .contact-info {
-                padding: 32px 24px;
-            }
-            
-            .modal {
-                padding: 30px 20px;
-            }
-            
-            .service-options {
-                grid-template-columns: 1fr;
+            .social-icons {
+                display: inline-block;
             }
         }
+        
+        /* Стили модальных окон */
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            overflow: auto;
+            background-color: rgba(0,0,0,0.4);
+        }
+        
+        .modal-content {
+            background-color: #fff;
+            margin: 15% auto;
+            padding: 20px;
+            border: 1px solid #888;
+            width: 80%;
+            animation-name: modalFadeIn;
+            animation-duration: 0.4s;
+        }
+        
+        .close {
+            color: #aaa;
+            float: right;
+            font-size: 28px;
+            font-weight: bold;
+        }
+        
+        .close:hover,
+        .close:focus {
+            color: black;
+            text-decoration: none;
+            cursor: pointer;
+        }
+        
+        .animate {
+            animation: fadeIn 0.5s;
+        }
+        
+        @keyframes modalFadeIn {
+            from {opacity: 0;}
+            to {opacity: 1;}
+        }
+        
+        @keyframes fadeIn {
+            from {transform: translateY(-100%);}
+            to {transform: translateY(0);}
+        }
     </style>
+    <!-- Fontawesome icons -->
+    <script src="https://kit.fontawesome.com/a076d05399.js"></script>
 </head>
-<body>
-    <!-- Хедер -->
-    <header id="header">
-        <div class="container header-container">
-            <a href="#home" class="logo">
-                <div class="logo-icon">
-                    <i class="fas fa-bolt"></i>
-                </div>
-                <div class="logo-text">
-                    <div class="logo-main">АСЦ Нягань</div>
-                    <div class="logo-city">Сервисные <span>центры</span></div>
-                </div>
-            </a>
-            
-            <button class="mobile-menu-btn" id="mobileMenuBtn">
-                <i class="fas fa-bars"></i>
-            </button>
-            
-            <nav id="mainNav">
+<body onload="showAnimation()">
+    
+    <!-- Header -->
+    <div class="header" id="home">
+        <div class="container">
+            <a href="#"><img src="images/logo.png" alt="Logo ASC-Nyagan" class="logo"></a>
+            <nav>
                 <ul>
-                    <li><a href="#home" class="active">Главная</a></li>
+                    <li><a href="#hero">Главная</a></li>
                     <li><a href="#services">Услуги</a></li>
-                    <li><a href="#process">Как работает</a></li>
                     <li><a href="#contacts">Контакты</a></li>
-                    <li><a href="#promo">Акции</a></li>
                 </ul>
             </nav>
-            
-            <div class="header-actions">
-                <a href="tel:+79224220025" class="phone-link">
-                    <i class="fas fa-phone-alt"></i>
-                    <span>+7 (922) 422-00-25</span>
-                </a>
-                <button class="order-btn" id="orderBtn">
-                    <i class="fas fa-paper-plane"></i>
-                    Заказать
-                </button>
-            </div>
-        </div>
-    </header>
-
-    <!-- Геро-секция -->
-    <section class="hero" id="home">
-        <div class="container hero-container">
-            <div class="hero-content">
-                <div class="hero-badge">
-                    <i class="fas fa-shield-alt"></i>
-                    <span>Надежный сервис с 2015 года</span>
-                </div>
-                
-                <h1 class="hero-title">
-                    Печать и ремонт техники<br>
-                    с доставкой в <span>Нягани</span>
-                </h1>
-                
-                <p class="hero-description">
-                    Забыли распечатать договор? Сломался телефон перед встречей? 
-                    Мы решаем обе задачи быстро и с доставкой по городу.
-                </p>
-                
-                <div class="hero-stats">
-                    <div class="stat-item">
-                        <div class="stat-number">15 мин</div>
-                        <div class="stat-label">Среднее время печати</div>
-                    </div>
-                    <div class="stat-item">
-                        <div class="stat-number">1-3 дня</div>
-                        <div class="stat-label">Срок ремонта</div>
-                    </div>
-                    <div class="stat-item">
-                        <div class="stat-number">2000+</div>
-                        <div class="stat-label">Довольных клиентов</div>
-                    </div>
-                </div>
-                
-                <div class="hero-buttons">
-                    <button class="hero-btn primary" data-service="print">
-                        <i class="fas fa-print"></i>
-                        Печать документов
-                    </button>
-                    <button class="hero-btn secondary" data-service="repair">
-                        <i class="fas fa-tools"></i>
-                        Ремонт техники
-                    </button>
-                </div>
-            </div>
-            
-            <div class="hero-visual">
-                <div class="hero-image">
-                    <!-- Заглушка для изображения - в реальном проекте использовать реальные фото -->
-                    <img src="https://images.unsplash.com/photo-1563013544-824ae1b704d3?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" alt="Печать и ремонт техники в Нягани">
-                </div>
-                
-                <div class="floating-badge">
-                    <div class="floating-badge-content">
-                        <div class="floating-badge-icon">🚗</div>
-                        <div class="floating-badge-text">
-                            Бесплатная доставка<br>
-                            от 600 ₽
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Секция услуг -->
-    <section class="services-section" id="services">
-        <div class="container">
-            <div class="section-header animate-on-scroll">
-                <div class="section-label">Наши услуги</div>
-                <h2 class="section-title">Что мы предлагаем</h2>
-                <p class="section-subtitle">
-                    Комплексные решения для печати документов и ремонта техники 
-                    с выездом по Нягани
-                </p>
-            </div>
-            
-            <div class="services-grid">
-                <!-- Карточка печати -->
-                <div class="service-card animate-on-scroll">
-                    <div class="service-image">
-                        <img src="https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" alt="Печать документов в Нягани">
-                    </div>
-                    
-                    <div class="service-content">
-                        <div class="service-header">
-                            <div class="service-icon">📄</div>
-                            <h3 class="service-title">Онлайн-печать</h3>
-                        </div>
-                        
-                        <ul class="service-features">
-                            <li>Присылайте файлы в Telegram или ВК</li>
-                            <li>Все форматы: PDF, Word, Excel, JPG</li>
-                            <li>Печать А4/А3, цветная и ч/б</li>
-                            <li>Самовывоз или доставка по городу</li>
-                        </ul>
-                        
-                        <div class="service-pricing">
-                            <div class="price-item">
-                                <span>Бесплатно от 600 ₽</span>
-                                <span class="price-amount">0 ₽</span>
-                            </div>
-                            <div class="price-item">
-                                <span>Доставка до 600 ₽</span>
-                                <span class="price-amount">200 ₽</span>
-                            </div>
-                            <div class="price-item">
-                                <span>Срочная доставка 20 мин</span>
-                                <span class="price-amount">+100 ₽</span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                
-                <!-- Карточка ремонта -->
-                <div class="service-card animate-on-scroll">
-                    <div class="service-image">
-                        <img src="https://images.unsplash.com/photo-1581092580497-e0d4cb184827?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" alt="Ремонт техники в Нягани">
-                    </div>
-                    
-                    <div class="service-content">
-                        <div class="service-header">
-                            <div class="service-icon">🔧</div>
-                            <h3 class="service-title">Ремонт техники</h3>
-                        </div>
-                        
-                        <ul class="service-features">
-                            <li>Телефоны, планшеты, ноутбуки, ПК</li>
-                            <li>Диагностика за 15 минут</li>
-                            <li>Чистка и замена термопасты</li>
-                            <li>Выезд мастера бесплатно</li>
-                        </ul>
-                        
-                        <div class="service-pricing">
-                            <div class="price-item">
-                                <span>Диагностика</span>
-                                <span class="price-amount">Бесплатно</span>
-                            </div>
-                            <div class="price-item">
-                                <span>Выезд мастера</span>
-                                <span class="price-amount">0 ₽</span>
-                            </div>
-                            <div class="price-item">
-                                <span>Ремонт от</span>
-                                <span class="price-amount">500 ₽</span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Секция процесса -->
-    <section class="process-section" id="process">
-        <div class="container">
-            <div class="section-header animate-on-scroll">
-                <div class="section-label">Как это работает</div>
-                <h2 class="section-title">Простой процесс</h2>
-                <p class="section-subtitle">
-                    Всего 4 шага от заявки до получения услуги
-                </p>
-            </div>
-            
-            <div class="process-steps">
-                <div class="process-step animate-on-scroll">
-                    <div class="step-number">1</div>
-                    <div class="step-icon">📱</div>
-                    <h4>Свяжитесь с нами</h4>
-                    <p>Позвоните, напишите в Telegram или ВК</p>
-                </div>
-                
-                <div class="process-step animate-on-scroll">
-                    <div class="step-number">2</div>
-                    <div class="step-icon">💬</div>
-                    <h4>Опишите задачу</h4>
-                    <p>Расскажите, что нужно сделать</p>
-                </div>
-                
-                <div class="process-step animate-on-scroll">
-                    <div class="step-number">3</div>
-                    <div class="step-icon">⚡</div>
-                    <h4>Получите услугу</h4>
-                    <p>Мы выполним работу быстро и качественно</p>
-                </div>
-                
-                <div class="process-step animate-on-scroll">
-                    <div class="step-number">4</div>
-                    <div class="step-icon">💳</div>
-                    <h4>Оплатите</h4>
-                    <p>Оплата после выполнения работы</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Секция контактов -->
-    <section class="contacts-section" id="contacts">
-        <div class="container">
-            <div class="section-header animate-on-scroll">
-                <div class="section-label">Контакты</div>
-                <h2 class="section-title">Свяжитесь с нами</h2>
-                <p class="section-subtitle">
-                    Мы всегда на связи и готовы помочь
-                </p>
-            </div>
-            
-            <div class="contacts-container">
-                <div class="contact-info animate-on-scroll">
-                    <div class="contact-item">
-                        <div class="contact-icon">
-                            <i class="fas fa-map-marker-alt"></i>
-                        </div>
-                        <div class="contact-details">
-                            <h4>Адрес</h4>
-                            <p>г. Нягань, ул. Интернациональная, 82а, ТЦ «Сибиряк»</p>
-                        </div>
-                    </div>
-                    
-                    <div class="contact-item">
-                        <div class="contact-icon">
-                            <i class="fas fa-phone-alt"></i>
-                        </div>
-                        <div class="contact-details">
-                            <h4>Телефон</h4>
-                            <p><a href="tel:+79224220025">+7 (922) 422-00-25</a></p>
-                        </div>
-                    </div>
-                    
-                    <div class="contact-item">
-                        <div class="contact-icon">
-                            <i class="fab fa-telegram"></i>
-                        </div>
-                        <div class="contact-details">
-                            <h4>Telegram</h4>
-                            <p><a href="https://t.me/asc_Nyagan" target="_blank">@asc_Nyagan</a></p>
-                        </div>
-                    </div>
-                    
-                    <div class="contact-item">
-                        <div class="contact-icon">
-                            <i class="fab fa-vk"></i>
-                        </div>
-                        <div class="contact-details">
-                            <h4>ВКонтакте</h4>
-                            <p><a href="https://vk.ru/asc_nyagan" target="_blank">vk.com/asc_nyagan</a></p>
-                        </div>
-                    </div>
-                    
-                    <div class="contact-item">
-                        <div class="contact-icon">
-                            <i class="fas fa-clock"></i>
-                        </div>
-                        <div class="contact-details">
-                            <h4>Режим работы</h4>
-                            <p>Пн–Вс: 10:00–18:00</p>
-                            <p>Четверг: выходной</p>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="contact-map animate-on-scroll">
-                    <!-- В реальном проекте здесь будет карта -->
-                    <div style="width: 100%; height: 100%; background: var(--gray-100); display: flex; align-items: center; justify-content: center; color: var(--gray-400);">
-                        <div style="text-align: center; padding: 20px;">
-                            <i class="fas fa-map-marked-alt" style="font-size: 3rem; margin-bottom: 20px;"></i>
-                            <h3 style="color: var(--gray-900); margin-bottom: 10px;">Мы находимся здесь</h3>
-                            <p>г. Нягань, ул. Интернациональная, 82а</p>
-                            <p>Торговый центр «Сибиряк»</p>
-                        </div>
-                    </div>
-                    
-                    <div class="map-overlay">
-                        <h4>Как добраться</h4>
-                        <p>ТЦ «Сибиряк», 1 этаж, отдел №12. Рядом с супермаркетом «Магнит»</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Секция акций -->
-    <section class="promo-section" id="promo">
-        <div class="container">
-            <div class="section-header animate-on-scroll">
-                <div class="section-label">Специальные предложения</div>
-                <h2 class="section-title">Акции для новых клиентов</h2>
-                <p class="section-subtitle">
-                    Воспользуйтесь специальными промокодами при первом обращении
-                </p>
-            </div>
-            
-            <div class="promo-cards">
-                <div class="promo-card animate-on-scroll">
-                    <div class="promo-icon">🖨️</div>
-                    <h3>Печать документов</h3>
-                    <p>Скидка 20% на первый заказ печати документов любого формата</p>
-                    <div class="promo-code">НЯГАНЬ20</div>
-                    <p>Акция действует до 31 декабря 2026 года</p>
-                </div>
-                
-                <div class="promo-card animate-on-scroll">
-                    <div class="promo-icon">📲</div>
-                    <h3>Ремонт техники</h3>
-                    <p>Бесплатная диагностика + скидка 10% на ремонт любой техники</p>
-                    <div class="promo-code">НЯГАНЬМАСТЕР</div>
-                    <p>Акция действует до 31 декабря 2026 года</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Футер -->
-    <footer>
-        <div class="container">
-            <div class="footer-container">
-                <div class="footer-column">
-                    <div class="footer-logo">
-                        <div class="logo-icon">
-                            <i class="fas fa-bolt"></i>
-                        </div>
-                        <div class="logo-text">
-                            <div class="logo-main">АСЦ Нягань</div>
-                            <div class="logo-city">Сервисные <span>центры</span></div>
-                        </div>
-                    </div>
-                    
-                    <p>Быстрая печать документов и ремонт техники с доставкой по Нягани. Работаем с 2015 года.</p>
-                    
-                    <div class="social-links">
-                        <a href="https://t.me/asc_Nyagan" class="social-link" target="_blank">
-                            <i class="fab fa-telegram"></i>
-                        </a>
-                        <a href="https://vk.ru/asc_nyagan" class="social-link" target="_blank">
-                            <i class="fab fa-vk"></i>
-                        </a>
-                        <a href="tel:+79224220025" class="social-link">
-                            <i class="fas fa-phone-alt"></i>
-                        </a>
-                    </div>
-                </div>
-                
-                <div class="footer-column">
-                    <h4>Услуги</h4>
-                    <ul class="footer-links">
-                        <li><a href="#services">Печать документов</a></li>
-                        <li><a href="#services">Ремонт телефонов</a></li>
-                        <li><a href="#services">Ремонт ноутбуков</a></li>
-                        <li><a href="#services">Ремонт ПК и ТВ</a></li>
-                        <li><a href="#services">Доставка по городу</a></li>
-                    </ul>
-                </div>
-                
-                <div class="footer-column">
-                    <h4>Контакты</h4>
-                    <ul class="footer-links">
-                        <li><a href="tel:+79224220025">+7 (922) 422-00-25</a></li>
-                        <li><a href="https://t.me/asc_Nyagan" target="_blank">Telegram</a></li>
-                        <li><a href="https://vk.ru/asc_nyagan" target="_blank">ВКонтакте</a></li>
-                        <li>г. Нягань, ул. Интернациональная, 82а</li>
-                        <li>ТЦ «Сибиряк», 1 этаж</li>
-                    </ul>
-                </div>
-            </div>
-            
-            <div class="copyright">
-                <p>© 2026 Ассоциация сервисных центров — Нягань. Все права защищены.</p>
-            </div>
-        </div>
-    </footer>
-
-    <!-- Модальное окно заказа -->
-    <div class="modal-overlay" id="modalOverlay">
-        <div class="modal">
-            <button class="modal-close" id="modalClose">
-                <i class="fas fa-times"></i>
-            </button>
-            <h2>Оформить заказ</h2>
-            <form id="orderForm">
-                <div class="form-group">
-                    <label>Выберите услугу:</label>
-                    <div class="service-options">
-                        <div class="service-option" data-value="print">
-                            <i class="fas fa-print"></i>
-                            Печать
-                        </div>
-                        <div class="service-option" data-value="repair">
-                            <i class="fas fa-tools"></i>
-                            Ремонт
-                        </div>
-                    </div>
-                    <input type="hidden" id="serviceType" name="serviceType" value="print" required>
-                </div>
-                
-                <div class="form-group">
-                    <label for="name">Ваше имя *</label>
-                    <input type="text" id="name" name="name" class="form-control" placeholder="Иван Иванов" required>
-                    <div class="form-error" id="nameError">Пожалуйста, введите ваше имя</div>
-                </div>
-                
-                <div class="form-group">
-                    <label for="phone">Телефон *</label>
-                    <input type="tel" id="phone" name="phone" class="form-control" placeholder="+7 (___) ___-__-__" required>
-                    <div class="form-error" id="phoneError">Пожалуйста, введите корректный номер телефона</div>
-                </div>
-                
-                <div class="form-group">
-                    <label for="message">Описание задачи</label>
-                    <textarea id="message" name="message" class="form-control" rows="3" placeholder="Опишите, что нужно сделать..."></textarea>
-                </div>
-                
-                <button type="submit" class="modal-submit">
-                    <i class="fas fa-paper-plane"></i> Отправить заявку
-                </button>
-            </form>
+            <button onclick="openModal('order')" class="btn-order">Заказать</button>
         </div>
     </div>
 
+    <!-- Герой (баннер) -->
+    <div class="hero-section" id="hero">
+        <h1>Ассоциация сервисных центров — Нягань</h1>
+        <p>Забыли распечатать договор? Сломался телефон перед встречей?<br>Больше не нужно бегать по разным точкам — мы решаем обе задачи быстро и с доставкой!</p>
+        <div class="buttons">
+            <button onclick="scrollToSection('#print')">Печать документов</button>
+            <button onclick="scrollToSection('#repair')">Ремонт техники</button>
+        </div>
+    </div>
+
+    <!-- Онлайн печать документов -->
+    <div class="section print-services" id="print">
+        <i class="fas fa-file-invoice icon"></i>
+        <h2>Онлайн-печать документов</h2>
+        <ol>
+            <li>Присылайте файл в Telegram или VK.</li>
+            <li>Укажите формат (A4/A3), ч/б или цветной, кол-во копий.</li>
+            <li>Самовывоз или доставка по Нягани.</li>
+        </ol>
+        <div class="delivery-info">
+            <strong>Доставка:</strong>
+            <ul>
+                <li>Бесплатно при заказе от 600₽</li>
+                <li>200₽ при сумме до 600₽</li>
+                <li>Срочно (+100₽)</li>
+            </ul>
+        </div>
+        <div class="advantages">
+            <ul>
+                <li>✨ Готово за 15 минут</li>
+                <li>✨ От 20₽ за лист (ч/б A4)</li>
+                <li>✨ Поддерживаем форматы: PDF, Word, Excel, JPG</li>
+            </ul>
+        </div>
+    </div>
+
+    <!-- Ремонт техники с выездом -->
+    <div class="section repair-services" id="repair">
+        <i class="fas fa-tools icon"></i>
+        <h2>Ремонт техники с выездом</h2>
+        <p>Мы занимаемся ремонтом телефонов, планшетов, ноутбуков, компьютеров и телевизоров.</p>
+        <div class="on-site-repairs">
+            <strong>Что можем сделать прямо у вас дома:</strong>
+            <ul>
+                <li>❗ Провести диагностику за 15 минут</li>
+                <li>💻 Почистить ноутбук и заменить термопасту</li>
+                <li>🖥️ Настроить программное обеспечение и подключить устройства</li>
+            </ul>
+        </div>
+        <div class="service-pickup">
+            <strong>Заберем вашу технику в сервис (для сложных работ):</strong>
+            <ul>
+                <li>Мастер приезжает к вам домой</li>
+                <li>Оформляем акт приема</li>
+                <li>Ремонтируем за 1–3 дня (при наличии деталей)</li>
+                <li>Привозим отремонтированную технику бесплатно!</li>
+            </ul>
+        </div>
+        <p>Выезд мастера бесплатен при заказе ремонта.</p>
+    </div>
+
+    <!-- Контактная информация -->
+    <div class="section contacts" id="contacts">
+        <h2>🏍 Где нас найти и как связаться:</h2>
+        <address>
+            Адрес: г. Нягань, ул. Интернациональная, 82а, ТЦ «Сибиряк»<br>
+            Тел.: +7 (922) 422-00-25<br>
+            Telegram: @asc_Nyagan<br>
+            ВКонтакте: vk.com/asc_nyagan
+        </address>
+        <p>Режим работы:<br>
+           Понедельник—суббота: 10:00–18:00, четверг — выходной.</p>
+    </div>
+
+    <!-- Промоакции -->
+    <div class="section promotions" id="promotions">
+        <h2>🎁 Акции для новых клиентов:</h2>
+        <ul>
+            <li>🖨️ Печать документов — скидка 20%, промокод: НЯГАНЬ20</li>
+            <li>📲 Ремонт техники — бесплатная диагностика + скидка 10%, промокод: НЯГАНЬМАСТЕР</li>
+        </ul>
+    </div>
+
+    <!-- Footer -->
+    <div class="footer">
+        <div class="container">
+            <img src="images/logo.png" alt="ASC Logo" class="logo">
+            <small>© 2026 Ассоциация сервисных центров — Нягань</small>
+            <div class="social-icons">
+                <a href="#" target="_blank"><i class="fab fa-vk"></i></a>
+                <a href="#" target="_blank"><i class="fab fa-telegram-plane"></i></a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal Window for Order Form -->
+    <div id="modalOrderForm" class="modal">
+        <form action="#" method="post" class="modal-content animate">
+            <span onclick="closeModal('order')" class="close">×</span>
+            <h2>Заполните форму заказа</h2>
+            <label for="name">Ваше имя:</label>
+            <input type="text" id="name" required placeholder="Иван Иванов">
+            <label for="phone">Телефон:</label>
+            <input type="tel" id="phone" required placeholder="+7 (___) ___ __ __">
+            <label for="email">Email:</label>
+            <input type="email" id="email" placeholder="example@mail.ru">
+            <textarea rows="4" cols="50" placeholder="Описание услуги..."></textarea>
+            <button type="submit">Отправить заказ</button>
+        </form>
+    </div>
+
     <script>
-        // Инициализация при загрузке страницы
-        document.addEventListener('DOMContentLoaded', function() {
-            // Эффект изменения хедера при скролле
-            const header = document.getElementById('header');
-            
-            window.addEventListener('scroll', function() {
-                if (window.scrollY > 50) {
-                    header.classList.add('scrolled');
-                } else {
-                    header.classList.remove('scrolled');
-                }
-            });
-            
-            // Анимация элементов при скролле
-            const animateElements = document.querySelectorAll('.animate-on-scroll');
-            
-            function checkScroll() {
-                animateElements.forEach(element => {
-                    const elementTop = element.getBoundingClientRect().top;
-                    const windowHeight = window.innerHeight;
-                    
-                    if (elementTop < windowHeight - 100) {
-                        element.classList.add('animated');
-                    }
+        // Открываем модальное окно
+        function openModal(id) {
+            document.getElementById(`modal${id}`).style.display = "block";
+        }
+
+        // Закрываем модальное окно
+        function closeModal(id) {
+            document.getElementById(`modal${id}`).style.display = "none";
+        }
+
+        // Прокручиваем страницу плавно к нужной секции
+        function scrollToSection(sectionID) {
+            const element = document.querySelector(sectionID);
+            if (element) {
+                window.scrollTo({
+                    top: element.offsetTop,
+                    behavior: 'smooth'
                 });
             }
-            
-            window.addEventListener('scroll', checkScroll);
-            checkScroll(); // Проверяем сразу при загрузке
-            
-            // Мобильное меню
-            const mobileMenuBtn = document.getElementById('mobileMenuBtn');
-            const mainNav = document.getElementById('mainNav');
-            
-            mobileMenuBtn.addEventListener('click', function() {
-                mainNav.classList.toggle('active');
-                const icon = this.querySelector('i');
-                
-                if (mainNav.classList.contains('active')) {
-                    mainNav.style.display = 'block';
-                    mainNav.style.position = 'absolute';
-                    mainNav.style.top = '100%';
-                    mainNav.style.left = '0';
-                    mainNav.style.width = '100%';
-                    mainNav.style.backgroundColor = 'rgba(255, 255, 255, 0.98)';
-                    mainNav.style.backdropFilter = 'blur(20px)';
-                    mainNav.style.padding = '30px';
-                    mainNav.style.boxShadow = 'var(--shadow-md)';
-                    mainNav.style.borderTop = '1px solid rgba(0, 0, 0, 0.05)';
-                    
-                    mainNav.querySelector('ul').style.flexDirection = 'column';
-                    mainNav.querySelector('ul').style.gap = '20px';
-                    mainNav.querySelector('ul').style.alignItems = 'flex-start';
-                    
-                    icon.classList.remove('fa-bars');
-                    icon.classList.add('fa-times');
-                } else {
-                    mainNav.style.display = 'none';
-                    icon.classList.remove('fa-times');
-                    icon.classList.add('fa-bars');
-                }
-            });
-            
-            // Модальное окно заказа
-            const orderBtn = document.getElementById('orderBtn');
-            const modalOverlay = document.getElementById('modalOverlay');
-            const modalClose = document.getElementById('modalClose');
-            const heroButtons = document.querySelectorAll('.hero-btn');
-            const serviceOptions = document.querySelectorAll('.service-option');
-            const serviceTypeInput = document.getElementById('serviceType');
-            
-            // Установка выбранной услуги
-            function setServiceOption(service) {
-                serviceOptions.forEach(option => {
-                    option.classList.remove('selected');
-                    if (option.getAttribute('data-value') === service) {
-                        option.classList.add('selected');
-                    }
-                });
-                serviceTypeInput.value = service;
-            }
-            
-            // Открытие модального окна
-            function openModal(service = 'print') {
-                setServiceOption(service);
-                modalOverlay.classList.add('active');
-                document.body.style.overflow = 'hidden';
-            }
-            
-            // Закрытие модального окна
-            function closeModal() {
-                modalOverlay.classList.remove('active');
-                document.body.style.overflow = 'auto';
-            }
-            
-            // Обработчики открытия модального окна
-            orderBtn.addEventListener('click', () => openModal());
-            
-            heroButtons.forEach(button => {
-                button.addEventListener('click', function() {
-                    const service = this.getAttribute('data-service');
-                    openModal(service);
-                });
-            });
-            
-            // Выбор услуги в модальном окне
-            serviceOptions.forEach(option => {
-                option.addEventListener('click', function() {
-                    const service = this.getAttribute('data-value');
-                    setServiceOption(service);
-                });
-            });
-            
-            // Закрытие модального окна
-            modalClose.addEventListener('click', closeModal);
-            modalOverlay.addEventListener('click', function(e) {
-                if (e.target === modalOverlay) {
-                    closeModal();
-                }
-            });
-            
-            // Маска для телефона
-            const phoneInput = document.getElementById('phone');
-            
-            phoneInput.addEventListener('input', function(e) {
-                let value = e.target.value.replace(/\D/g, '');
-                
-                if (value.length > 0) {
-                    value = '+7 (' + value.substring(1, 4) + ') ' + value.substring(4, 7) + '-' + value.substring(7, 9) + '-' + value.substring(9, 11);
-                    value = value.trim();
-                }
-                
-                e.target.value = value;
-            });
-            
-            // Валидация формы
-            const orderForm = document.getElementById('orderForm');
-            const nameInput = document.getElementById('name');
-            const nameError = document.getElementById('nameError');
-            const phoneError = document.getElementById('phoneError');
-            
-            orderForm.addEventListener('submit', function(e) {
-                e.preventDefault();
-                
-                let isValid = true;
-                
-                // Проверка имени
-                if (!nameInput.value.trim()) {
-                    nameError.style.display = 'block';
-                    nameInput.style.borderColor = '#ff4444';
-                    isValid = false;
-                } else {
-                    nameError.style.display = 'none';
-                    nameInput.style.borderColor = 'var(--gray-200)';
-                }
-                
-                // Проверка телефона
-                const phoneRegex = /^\+7 \(\d{3}\) \d{3}-\d{2}-\d{2}$/;
-                if (!phoneRegex.test(phoneInput.value)) {
-                    phoneError.style.display = 'block';
-                    phoneInput.style.borderColor = '#ff4444';
-                    isValid = false;
-                } else {
-                    phoneError.style.display = 'none';
-                    phoneInput.style.borderColor = 'var(--gray-200)';
-                }
-                
-                if (isValid) {
-                    // Имитация отправки формы
-                    const submitBtn = orderForm.querySelector('.modal-submit');
-                    const originalText = submitBtn.innerHTML;
-                    
-                    submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Отправка...';
-                    submitBtn.disabled = true;
-                    
-                    setTimeout(() => {
-                        alert('Спасибо! Ваша заявка отправлена. Мы свяжемся с вами в ближайшее время.');
-                        
-                        // Сбрасываем форму
-                        orderForm.reset();
-                        setServiceOption('print');
-                        
-                        submitBtn.innerHTML = originalText;
-                        submitBtn.disabled = false;
-                        
-                        closeModal();
-                    }, 1500);
-                }
-            });
-            
-            // Плавная прокрутка для навигации
-            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-                anchor.addEventListener('click', function(e) {
-                    const href = this.getAttribute('href');
-                    
-                    if (href === '#') return;
-                    
-                    e.preventDefault();
-                    const targetElement = document.querySelector(href);
-                    
-                    if (targetElement) {
-                        // Закрываем мобильное меню
-                        if (mainNav.classList.contains('active')) {
-                            mainNav.classList.remove('active');
-                            mobileMenuBtn.querySelector('i').classList.remove('fa-times');
-                            mobileMenuBtn.querySelector('i').classList.add('fa-bars');
-                            mainNav.style.display = 'none';
-                        }
-                        
-                        window.scrollTo({
-                            top: targetElement.offsetTop - 100,
-                            behavior: 'smooth'
-                        });
-                    }
-                });
-            });
+        }
+
+        // Анимация при загрузке страницы
+        function showAnimation() {}
+
+        // Валидация формы
+        document.addEventListener("DOMContentLoaded", function () {
+            const form = document.querySelector(".modal-content");
+            form.addEventListener("submit", validateForm);
         });
+
+        function validateForm(event) {
+            event.preventDefault(); // Остановка отправки формы немедленно
+            const inputs = this.querySelectorAll("input[type='text'], input[type='email'], input[type='tel']");
+            let valid = true;
+
+            inputs.forEach(input => {
+                if (!input.value.trim()) {
+                    alert(`${input.placeholder} должно быть заполнено.`);
+                    valid = false;
+                }
+            });
+
+            if (valid) {
+                alert("Форма успешно отправлена!");
+                this.reset();
+            }
+        }
     </script>
 </body>
 </html>
